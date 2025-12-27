@@ -1,5 +1,6 @@
 * ~~create grid~~
 * ~~color boxes~~
 * ~~name boxes~~
-* create player
+* ~~create player~~
 * movement of player
+* create die roll animation

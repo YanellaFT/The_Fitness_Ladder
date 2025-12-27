@@ -1,5 +1,7 @@
 let tiles = [];
 
+let player;
+
 function setup() {
   createCanvas(450, 450);
 
@@ -33,11 +35,17 @@ function setup() {
       dir = 1; //now moving right
     }
   }
+
+  player = new Player();
 }
 
 function draw() {
   background(220);
-  for ( let tile of tiles) {
+
+  for ( let tile of tiles ) {
     tile.show();
   }
+
+  player.show(tiles);
+  player.roll();
 }

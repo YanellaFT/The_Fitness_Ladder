@@ -18,6 +18,12 @@ class Tile {
         }
     }
 
+    center() {
+        let centX = this.x + this.size / 2;
+        let centY = this.y + this.size / 2;
+        return [centX, centY];
+    }
+
     show() {
         fill(this.color);
         rect(this.x, this.y, this.size, this.size);
