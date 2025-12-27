@@ -1,7 +1,7 @@
 let tiles = [];
 
 function setup() {
-  createCanvas(500, 450);
+  createCanvas(450, 450);
 
   let s = 50;
   let column = width / s;
@@ -16,7 +16,7 @@ function setup() {
 
   //create tiles
   for ( let i = 0; i < column * row; i++) {
-    let tile = new Tile(x, y, s, i + 1);
+    let tile = new Tile(x, y, s, i + 1, i + 2);
     tiles.push(tile);
 
     x = x + (s * dir);
