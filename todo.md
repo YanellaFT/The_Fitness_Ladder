@@ -1,2 +1,3 @@
-* create grid
-* color boxes
+* ~~create grid~~
+* color boxes/name boxes
+* create player

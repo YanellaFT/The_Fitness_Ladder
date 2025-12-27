@@ -1,7 +1,43 @@
+let tiles = [];
+
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(500, 450);
+
+  let s = 50;
+  let column = width / s;
+  let row = height / s;
+
+  //startign spot for tiles (bottom left)
+  let x = 0;
+  let y = (row - 1) * s;
+
+  //direction of moving tiles
+  let dir = 1;
+
+  //create tiles
+  for ( let i = 0; i < column * row; i++) {
+    let tile = new Tile(x, y, s, i + 1);
+    tiles.push(tile);
+
+    x = x + (s * dir);
+
+    //check for edges
+    if (x >= width) {
+      x = x - s;
+      y = y - s;
+      dir = -1; //now moving left
+    }
+    if (x<= -s) {
+      x = x + s;
+      y = y - s;
+      dir = 1; //now moving right
+    }
+  }
 }
 
 function draw() {
   background(220);
+  for ( let tile of tiles) {
+    tile.show();
+  }
 }
