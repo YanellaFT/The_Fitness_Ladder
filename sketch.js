@@ -13,7 +13,7 @@ function setup() {
   let x = 0;
   let y = (row - 1) * s;
 
-  //direction of moving tiles
+  //direction of adding new tiles
   let dir = 1;
 
   //create tiles
@@ -48,4 +48,4 @@ function draw() {
 
   player.show(tiles);
   player.roll();
-}
+} 
