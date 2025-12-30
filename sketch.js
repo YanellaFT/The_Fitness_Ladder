@@ -49,8 +49,8 @@ function draw() {
   player.roll();
 
   //check to see if player is on last spot to not go beyond
-  if (player.spot >= tiles.length) {
-    player.spot = tiles.length;
+  if (player.spot >= tiles.length - 1) {
+    player.spot = tiles.length - 1;
     noLoop();
   }
   player.show(tiles);

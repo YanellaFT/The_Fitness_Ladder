@@ -18,7 +18,7 @@ class Tile {
         }
     }
 
-    center() {
+    getCenter() {
         let centX = this.x + this.size / 2;
         let centY = this.y + this.size / 2;
         return [centX, centY];

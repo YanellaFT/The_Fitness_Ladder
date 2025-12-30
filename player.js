@@ -11,7 +11,7 @@ class Player {
     show(tiles) {
         let current = tiles[this.spot + 1];
         fill(255);
-        let center = current.center();
+        let center = current.getCenter();
         ellipse(center[0], center[1], 10);
     }
 }
