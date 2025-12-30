@@ -6,18 +6,18 @@ function setup() {
   createCanvas(450, 450);
 
   let s = 50;
-  let column = width / s;
-  let row = height / s;
+  let col = width / s;
+  let ro = height / s;
 
   //startign spot for tiles (bottom left)
   let x = 0;
-  let y = (row - 1) * s;
+  let y = (ro - 1) * s;
 
   //direction of adding new tiles
   let dir = 1;
 
   //create tiles
-  for ( let i = 0; i < column * row; i++) {
+  for ( let i = 0; i < col * ro; i++) {
     let tile = new Tile(x, y, s, i + 1, i + 2);
     tiles.push(tile);
 
