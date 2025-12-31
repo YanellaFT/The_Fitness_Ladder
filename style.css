@@ -1,0 +1,18 @@
+.dice-cont {
+    display: flex;
+
+}
+
+.dice {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    margin: 5px;
+
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(0, 0, 0, .25)
+}
+
+.roll-dice-button {
+    margin-top: 10px;
+}
