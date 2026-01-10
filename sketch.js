@@ -37,6 +37,13 @@ function setup() {
   }
 
   player = new Player();
+
+  const diceContainer = document.querySelector(".dice-cont");
+  const btnRollDice = document.querySelector(".roll-dice-button");
+
+  diceContainer.appendChild(createDice(6));
+
+  randomDiceRoll(diceContainer, 2);
 }
 
 function draw() {
@@ -48,12 +55,26 @@ function draw() {
 
   player.roll();
 
-  //check to see if player is on last spot to not go beyond
+  //check to see if player is on last spot to not go beyond => DOESNT WORK
   if (player.spot >= tiles.length - 1) {
     player.spot = tiles.length - 1;
     noLoop();
   }
   player.show(tiles);
+
+
+  //dice roll 
+  const btnRollDice = document.querySelector(".roll-dice-button");
+  const diceContainer = document.querySelector(".dice-cont");
+  
+  btnRollDice.addEventListener("click", () => {
+    const animation = setInterval(() => {
+      randomDiceRoll(diceContainer, 2);
+    }, 50);
+
+    setTimeout(() => clearInterval(animation), 1000);
+  });
+
 } 
 
 function createDice(number) {
@@ -108,4 +129,15 @@ function createDice(number) {
     dice.appendChild(dot);
   }
   return dice;
+}
+
+function randomDiceRoll(diceContainer, numOfDice) {
+  diceContainer.innerHTML = ""; //clears previous dices
+
+  for (let i = 0; i < numOfDice; i++) {
+    const randomNum = Math.floor((Math.random() * 6) + 1);
+    const dice = createDice(randomNum);
+
+    diceContainer.appendChild(dice);
+  }
 }
