@@ -72,7 +72,7 @@ function draw() {
       randomDiceRoll(diceContainer, 2);
     }, 50);
 
-    setTimeout(() => clearInterval(animation), 1000);
+    setTimeout(() => clearInterval(animation), 500);
   });
 
 } 
