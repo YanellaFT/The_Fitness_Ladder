@@ -49,6 +49,9 @@ function setup() {
   diceContainer.appendChild(createDice(0));
   diceContainer.appendChild(createDice(0));
 
+  let moveButton = document.querySelector(".move-player-button");
+  moveButton.disabled = true;
+
   //if click then roll die + move player
   btnRollDice.addEventListener("click", () => {
     const animation = setInterval(() => {
@@ -57,9 +60,20 @@ function setup() {
 
     setTimeout(() => {
     clearInterval(animation);
+    moveButton.disabled = false;
+
     const totalSteps = randomDiceRoll(diceContainer, 2);
-    player.move(totalSteps);
-    }, 500);
+    const userSteps = document.querySelector(".move-steps-input").value;
+
+    //while (totalSteps != userSteps) {
+    if (totalSteps == userSteps){
+      moveButton.addEventListener("click", () => {
+        player.move(totalSteps);
+        moveButton.disabled = true;
+      });
+    }
+
+  }, 500);
 
   });
 

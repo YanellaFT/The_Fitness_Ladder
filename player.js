@@ -14,7 +14,7 @@ class Player {
     }
 
     update() {
-        if (this.steps >= 0) {
+        if (this.steps > 0) {
             this.spot ++;
             this.steps --;
         }
