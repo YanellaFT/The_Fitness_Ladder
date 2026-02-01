@@ -40,13 +40,10 @@ function setup() {
     }
   }
 
-  //board
-  image(boardImg, 0, 0, width, height);
-
+  //tiles[6].next = 1
 
   //playerrrr
   player = new Player();
-
 
   //diceee
   const diceContainer = document.querySelector(".dice-cont");
@@ -88,8 +85,13 @@ function setup() {
 function draw() {
   background(220);
 
-  for ( let tile of tiles ) {
-    tile.show();
+  imageMode(CENTER);
+  image(boardImg, width/2, height/2, width, height);
+
+  imageMode(CORNER);
+
+  for (let tile of tiles) {
+    tile.show(tiles);
   }
 
   //player.roll();

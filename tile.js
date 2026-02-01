@@ -1,11 +1,11 @@
 class Tile {
-    constructor(x, y, size, index, next, image) {
+    constructor(x, y, size, index, next) {
         this.x = x
         this.y = y
         this.size = size
         this.index = index
         this.next = next
-
+        
         //coloring the tiles
         if (this.index % 4 == 0) {
             this.color = "#d5d274ff";
@@ -26,9 +26,16 @@ class Tile {
         return [centX, centY];
     }
 
-    show() {
-        fill(this.color);
-        rect(this.x, this.y, this.size, this.size);
+    show(tiles) {
+        //fill(this.color);
+        //rect(this.x, this.y, this.size, this.size);
+        
+        if (this.next !== this.next + 1) {
+            let startCenter = this.getCenter();
+            let endCenter = tiles[this.next].getCenter();
+        }
+
+        
         fill(255);
         textSize(16);
         text(this.index, this.x, this.y + this.size);
