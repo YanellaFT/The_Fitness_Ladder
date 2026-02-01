@@ -1,5 +1,5 @@
 class Tile {
-    constructor(x, y, size, index, next) {
+    constructor(x, y, size, index, next, image) {
         this.x = x
         this.y = y
         this.size = size
@@ -8,14 +8,16 @@ class Tile {
 
         //coloring the tiles
         if (this.index % 4 == 0) {
-            this.color = "#ff2f00ff";
+            this.color = "#d5d274ff";
         } else if (this.index % 4 == 1) {
-            this.color = "#0011ffff";
+            this.color = "#d57475";
         } else if (this.index % 4 == 2) {
-            this.color = "#fffb00ff";
+            this.color = "#00ccffff";
         } else if (this.index % 4 == 3) {
             this.color = "#28c900ff";
         }
+
+        //image of board
     }
 
     getCenter() {

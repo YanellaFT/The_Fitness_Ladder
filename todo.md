@@ -10,9 +10,13 @@
 * ~~correct placement of player~~
 * ~~make sure die roll actually = amount of steps moved~~
 
+* add cards ==> 20 cards for each color + 2 special cards in each hi
+
 * make it so that if not exact die roll at the end, you move back that many steps
 * add snakes 
 * add ladders
 
 * style site
 * draw stuff !!!
+
+do bunx vite to run

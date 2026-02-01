@@ -1,6 +1,11 @@
 let tiles = [];
 
 let player;
+let boardImg;
+
+function preload() {
+  boardImg = loadImage("assets/board.png");
+}
 
 function setup() {
   createCanvas(450, 450);
@@ -17,7 +22,7 @@ function setup() {
   let dir = 1; //going right first
 
   //create tiles
-  for ( let i = 0; i < col * ro; i++) {
+  for (let i = 0; i < col * ro; i++) {
     let tile = new Tile(x, y, s, i + 1, i + 2);
     tiles.push(tile); //adds new tile
 
@@ -25,16 +30,18 @@ function setup() {
 
     //check for edges
     if (x >= width) {
-      x = x - s;
+      x = x - s; //x = width - s
       y = y - s;
       dir = -1; //now moving left
-    }
-    if (x<= -s) {
-      x = x + s;
+    } else if (x < 0) {
+      x = 0;
       y = y - s;
-      dir = 1; //now moving right
+      dir = 1
     }
   }
+
+  //board
+  image(boardImg, 0, 0, width, height);
 
 
   //playerrrr
@@ -44,38 +51,37 @@ function setup() {
   //diceee
   const diceContainer = document.querySelector(".dice-cont");
   const btnRollDice = document.querySelector(".roll-dice-button");
+  let moveButton = document.querySelector(".move-player-button");
+  moveButton.disabled = true;
 
   //start off with two blank dice
   diceContainer.appendChild(createDice(0));
   diceContainer.appendChild(createDice(0));
 
-  let moveButton = document.querySelector(".move-player-button");
-  moveButton.disabled = true;
-
   //if click then roll die + move player
   btnRollDice.addEventListener("click", () => {
+    btnRollDice.disabled = true; //does not allow double rolls
     const animation = setInterval(() => {
       randomDiceRoll(diceContainer, 2);
     }, 50);
 
     setTimeout(() => {
-    clearInterval(animation);
-    moveButton.disabled = false;
+      clearInterval(animation);
+      moveButton.disabled = false;
+      btnRollDice.disabled = false;
 
-    const totalSteps = randomDiceRoll(diceContainer, 2);
-    const userSteps = document.querySelector(".move-steps-input").value;
-
-    //while (totalSteps != userSteps) {
-    if (totalSteps == userSteps){
+      const totalSteps = randomDiceRoll(diceContainer, 2);
+      
       moveButton.addEventListener("click", () => {
         player.move(totalSteps);
         moveButton.disabled = true;
       });
-    }
 
-  }, 500);
+
+    }, 500);
 
   });
+
 
 }
 
@@ -97,19 +103,6 @@ function draw() {
   }
   //player.show(tiles);
 
-
-  //dice roll 
-  const btnRollDice = document.querySelector(".roll-dice-button");
-  const diceContainer = document.querySelector(".dice-cont");
-
-  /* move to setup... does it make difference?
-  btnRollDice.addEventListener("click", () => {
-    const animation = setInterval(() => {
-      randomDiceRoll(diceContainer, 2);
-    }, 50);
-
-    setTimeout(() => clearInterval(animation), 500);
-  });*/
 
 } 
 
