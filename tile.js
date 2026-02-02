@@ -29,11 +29,11 @@ class Tile {
     show(tiles) {
         //fill(this.color);
         //rect(this.x, this.y, this.size, this.size);
-        
+        /*
         if (this.next !== this.next + 1) {
             let startCenter = this.getCenter();
             let endCenter = tiles[this.next].getCenter();
-        }
+        }*/
 
         
         fill(255);

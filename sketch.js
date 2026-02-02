@@ -10,37 +10,42 @@ function preload() {
 function setup() {
   createCanvas(450, 450);
 
-  let s = 50;
-  let col = width / s;
-  let ro = height / s;
+  let sideLength = 46;
+  let offset = 18;
+  let col = 9;
+  let ro = 9;
 
   //startign spot for tiles (bottom left)
-  let x = 0;
-  let y = (ro - 1) * s;
+  let x = offset;
+  let y = height - offset - sideLength;
 
   //direction of adding new tiles
   let dir = 1; //going right first
 
   //create tiles
   for (let i = 0; i < col * ro; i++) {
-    let tile = new Tile(x, y, s, i + 1, i + 2);
+    let tile = new Tile(x, y, sideLength, i + 1, i + 2);
     tiles.push(tile); //adds new tile
 
-    x = x + (s * dir); //make sure to move in right direction
+    x = x + (sideLength * dir); //make sure to move in right direction
 
     //check for edges
-    if (x >= width) {
-      x = x - s; //x = width - s
-      y = y - s;
+    if (x > width - offset - sideLength && dir == 1) {
+      x = width - offset - sideLength;
+      y = y - sideLength;
       dir = -1; //now moving left
-    } else if (x < 0) {
-      x = 0;
-      y = y - s;
+    } else if (x < offset && dir == -1) {
+      x = offset;
+      y = y - sideLength;
       dir = 1
     }
   }
 
-  //tiles[6].next = 1
+/*  tiles[6].next = 30;
+  tiles[10].next = 8;
+  tiles[16].next = 22;
+  tiles[20].next = 2;
+  tiles[33].next = 39;*/
 
   //playerrrr
   player = new Player();
@@ -70,8 +75,9 @@ function setup() {
       const totalSteps = randomDiceRoll(diceContainer, 2);
       
       moveButton.addEventListener("click", () => {
+        frameRate(10); //slows player down
         player.move(totalSteps);
-        moveButton.disabled = true;
+        moveButton.disabled = true; //allow 
       });
 
 
