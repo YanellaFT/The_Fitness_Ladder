@@ -17,6 +17,12 @@ class Player {
         if (this.steps > 0) {
             this.spot ++;
             this.steps --;
+        } else { //doesnt work
+            if (this.spot != tiles.length) {
+                if (currentTile.next !== this.spot) {
+                    this.spot = currentTiles.next;
+                }
+            }
         }
 
         this.spot = min(this.spot, tiles.length - 1); //should make it not go off board

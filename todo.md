@@ -9,7 +9,7 @@
 * add button to start movement of die (maybe even "Enter amount to move: if input == correct steps needed then move player" for math component)
 * ~~correct placement of player~~
 * ~~make sure die roll actually = amount of steps moved~~
-* fix border/numbering on grid/board
+* ~~fix border/numbering on grid/board~~
 
 * add cards ==> 20 cards for each color + 2 special cards in each 
 
@@ -17,6 +17,8 @@
 
 * ~~add snakes 
 * add ladders~~
+
+* restart button
 
 * style site
 * draw stuff !!!

@@ -24,12 +24,12 @@ function setup() {
 
   //create tiles
   for (let i = 0; i < col * ro; i++) {
-    let tile = new Tile(x, y, sideLength, i + 1, i + 2);
+    let tile = new Tile(x, y, sideLength, i + 1, i); //makes new tile itself
     tiles.push(tile); //adds new tile
 
     x = x + (sideLength * dir); //make sure to move in right direction
 
-    //check for edges
+    //edges of board
     if (x > width - offset - sideLength && dir == 1) {
       x = width - offset - sideLength;
       y = y - sideLength;
@@ -37,15 +37,24 @@ function setup() {
     } else if (x < offset && dir == -1) {
       x = offset;
       y = y - sideLength;
-      dir = 1
+      dir = 1 //moving right again
     }
   }
 
-/*  tiles[6].next = 30;
-  tiles[10].next = 8;
-  tiles[16].next = 22;
-  tiles[20].next = 2;
-  tiles[33].next = 39;*/
+  //roads down
+  tiles[9].next = 7; //road going from 10 to 8
+  tiles[19].next = 1; //20 to 2 
+  tiles[47].next = 31;
+  tiles[54].next = 37; //55 to 38 
+  tiles[64].next = 46;
+  tiles[74].next = 58; //75 to 59 
+
+  //ladders up
+  tiles[5].next = 29; //ladder going from 6 to 30 
+  tiles[15].next = 21; //16 to 22 
+  tiles[32].next = 38; 
+  tiles[49].next = 77; //50 to 78 
+  tiles[51].next = 73; //52 to 74 
 
   //playerrrr
   player = new Player();
