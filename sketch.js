@@ -42,19 +42,19 @@ function setup() {
   }
 
   //roads down
-  tiles[9].next = 7; //road going from 10 to 8
-  tiles[19].next = 1; //20 to 2 
-  tiles[47].next = 31;
-  tiles[54].next = 37; //55 to 38 
-  tiles[64].next = 46;
-  tiles[74].next = 58; //75 to 59 
+  tiles[9].next = 7; //road going from 10 to 8 WORKS
+  tiles[19].next = 1; //20 to 2 WORKS
+  tiles[47].next = 31; //48 to 32 WORKS
+  tiles[54].next = 37; //55 to 38 WORKS
+  tiles[64].next = 46; //65 to 47 WORKS
+  tiles[74].next = 58; //75 to 59 WORKS
 
   //ladders up
-  tiles[5].next = 29; //ladder going from 6 to 30 
-  tiles[15].next = 21; //16 to 22 
-  tiles[32].next = 38; 
-  tiles[49].next = 77; //50 to 78 
-  tiles[51].next = 73; //52 to 74 
+  tiles[5].next = 29; //ladder going from 6 to 30 WORKS
+  tiles[15].next = 21; //16 to 22 WORKS
+  tiles[32].next = 38; //33 to 39 WORKS
+  tiles[49].next = 77; //50 to 78 WORKS
+  tiles[51].next = 73; //52 to 74 WORKS
 
   //playerrrr
   player = new Player();

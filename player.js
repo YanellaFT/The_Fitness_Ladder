@@ -17,13 +17,13 @@ class Player {
         if (this.steps > 0) {
             this.spot ++;
             this.steps --;
-        } else { //doesnt work
-            if (this.spot != tiles.length) {
-                if (currentTile.next !== this.spot) {
-                    this.spot = currentTiles.next;
-                }
+        } else { //when player stops moving chekc for road/ladder
+            let currentTile = tiles[this.spot];
+            if (currentTile.next != null) { //when specified certain tile in sketch for road/ladder
+                this.spot = currentTile.next;
             }
         }
+
 
         this.spot = min(this.spot, tiles.length - 1); //should make it not go off board
     }
