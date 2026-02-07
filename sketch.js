@@ -79,7 +79,7 @@ function setup() {
     setTimeout(() => {
       clearInterval(animation);
       moveButton.disabled = false;
-      btnRollDice.disabled = false;
+      btnRollDice.disabled = true;
 
       const totalSteps = randomDiceRoll(diceContainer, 2);
       
@@ -87,6 +87,7 @@ function setup() {
         frameRate(10); //slows player down
         player.move(totalSteps);
         moveButton.disabled = true; //allow 
+        btnRollDice.disabled = false;
       });
 
 
@@ -96,13 +97,38 @@ function setup() {
 
   //cards
   redCard = document.querySelector(".red-card");
-  redCard.disabled = true;
   blueCard = document.querySelector(".blue-card");
-  blueCard.disabled = true;
   greenCard = document.querySelector(".green-card");
-  greenCard.disabled = true;
   yellowCard = document.querySelector(".yellow-card");
-  yellowCard.disabled = true;
+  
+  armCard = document.querySelector(".big-red-card");
+  armCard.style.display = "none";
+  abCard = document.querySelector(".big-blue-card");
+  abCard.style.display = "none";
+  legCard = document.querySelector(".big-green-card");
+  legCard.style.display = "none";
+  cardioCard = document.querySelector(".big-yellow-card");
+  cardioCard.style.display = "none";
+
+  redCard.addEventListener("click", () => {
+    armCard.style.display = "block";
+    console.log("red card");
+  })
+
+  blueCard.addEventListener("click", () => {
+    abCard.style.display = "block";
+    console.log("blue card");
+  })
+
+  greenCard.addEventListener("click", () => {
+    legCard.style.display = "block";
+    console.log("green card");
+  })
+
+  yellowCard.addEventListener("click", () => {
+    cardioCard.style.display = "block";
+    console.log("yellow card");
+  })
 
 
 }
@@ -122,14 +148,6 @@ function draw() {
   //player.roll();
   player.update();
   player.show(tiles);
-
-  //check to see if player is on last spot to not go beyond => DOESNT WORK
-  if (player.spot >= tiles.length - 1) {
-    player.spot = tiles.length - 1;
-    noLoop();
-  }
-  //player.show(tiles);
-
 
 } 
 

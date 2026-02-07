@@ -25,27 +25,32 @@ class Player {
             }
 
             //check for what color tile
-            color = currentTile.getColor();
-            if (color =="red") {
+            let tileColor = currentTile.getColor();
+            if (tileColor == "red") {
                 redCard.disabled = false;
                 blueCard.disabled = true;
                 greenCard.disabled = true;
                 yellowCard.disabled = true;
-            } else if (color == "blue") {
+            } else if (tileColor == "blue") {
                 redCard.disabled = true;
                 blueCard.disabled = false;
                 greenCard.disabled = true;
                 yellowCard.disabled = true;
-            } else if (color == "green") {
+            } else if (tileColor == "green") {
                 redCard.disabled = true;
                 blueCard.disabled = true;
                 greenCard.disabled = false;
                 yellowCard.disabled = true;
-            } else if (color == "yellow") {
+            } else if (tileColor == "yellow") {
                 redCard.disabled = true;
                 blueCard.disabled = true;
                 greenCard.disabled = true;
                 yellowCard.disabled = false
+            } else {
+                redCard.disabled = true;
+                blueCard.disabled = true;
+                greenCard.disabled = true;
+                yellowCard.disabled = true;                
             }
         }
 

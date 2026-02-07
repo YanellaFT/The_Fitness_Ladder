@@ -22,14 +22,16 @@
 # GAME PLAY
 * make it so that if not exact die roll at the end, you move back that many steps
 
-* only allow roll once player stop moving
+* ~~only allow roll once player stop moving~~
 
 * add button to start movement of die (maybe even "Enter amount to move: if input == correct steps needed then move player" for math component)
 
-* ~~add snakes 
-* add ladders~~
+* ~~add snakes ~~
+* ~~add ladders~~
 
 * restart button
+
+* add second player
 
 
 
