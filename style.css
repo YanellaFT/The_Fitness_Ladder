@@ -40,3 +40,35 @@
 
     /*customizeee*/
 }
+
+.blue-card {
+    width: 100px;
+    height: 150px;
+    background-color: #00ccffff;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.red-card {
+    width: 100px;
+    height: 150px;
+    background-color: #d57475;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.green-card {
+    width: 100px;
+    height: 150px;
+    background-color: #28c900ff;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.yellow-card {
+    width: 100px;
+    height: 150px;
+    background-color: #ffde59;
+    border-radius: 10px;
+    margin: 10px;
+}

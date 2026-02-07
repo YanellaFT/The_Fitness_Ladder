@@ -17,10 +17,35 @@ class Player {
         if (this.steps > 0) {
             this.spot ++;
             this.steps --;
-        } else { //when player stops moving chekc for road/ladder
+        } else { //when player stops moving 
+            //check for road/ladder
             let currentTile = tiles[this.spot];
             if (currentTile.next != null) { //when specified certain tile in sketch for road/ladder
                 this.spot = currentTile.next;
+            }
+
+            //check for what color tile
+            color = currentTile.getColor();
+            if (color =="red") {
+                redCard.disabled = false;
+                blueCard.disabled = true;
+                greenCard.disabled = true;
+                yellowCard.disabled = true;
+            } else if (color == "blue") {
+                redCard.disabled = true;
+                blueCard.disabled = false;
+                greenCard.disabled = true;
+                yellowCard.disabled = true;
+            } else if (color == "green") {
+                redCard.disabled = true;
+                blueCard.disabled = true;
+                greenCard.disabled = false;
+                yellowCard.disabled = true;
+            } else if (color == "yellow") {
+                redCard.disabled = true;
+                blueCard.disabled = true;
+                greenCard.disabled = true;
+                yellowCard.disabled = false
             }
         }
 

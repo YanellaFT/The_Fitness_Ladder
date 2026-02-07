@@ -94,6 +94,16 @@ function setup() {
 
   });
 
+  //cards
+  redCard = document.querySelector(".red-card");
+  redCard.disabled = true;
+  blueCard = document.querySelector(".blue-card");
+  blueCard.disabled = true;
+  greenCard = document.querySelector(".green-card");
+  greenCard.disabled = true;
+  yellowCard = document.querySelector(".yellow-card");
+  yellowCard.disabled = true;
+
 
 }
 
