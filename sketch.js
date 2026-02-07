@@ -110,24 +110,47 @@ function setup() {
   cardioCard = document.querySelector(".big-yellow-card");
   cardioCard.style.display = "none";
 
+  let closeCardBtn = document.querySelector(".close-card");
+  closeCardBtn.style.display = "none";
+
   redCard.addEventListener("click", () => {
     armCard.style.display = "block";
-    console.log("red card");
+    closeCardBtn.style.display = "block";
+
+    closeCardBtn.addEventListener("click", () => {
+      armCard.style.display = "none";
+      closeCardBtn.style.display = "none";
+    })
   })
 
   blueCard.addEventListener("click", () => {
     abCard.style.display = "block";
-    console.log("blue card");
+    closeCardBtn.style.display = "block";
+
+    closeCardBtn.addEventListener("click", () => {
+      abCard.style.display = "none";
+      closeCardBtn.style.display = "none";
+    })  
   })
 
   greenCard.addEventListener("click", () => {
     legCard.style.display = "block";
-    console.log("green card");
+    closeCardBtn.style.display = "block";
+
+    closeCardBtn.addEventListener("click", () => {
+      legCard.style.display = "none";
+      closeCardBtn.style.display = "none";
+    })
   })
 
   yellowCard.addEventListener("click", () => {
     cardioCard.style.display = "block";
-    console.log("yellow card");
+    closeCardBtn.style.display = "block";
+
+    closeCardBtn.addEventListener("click", () => {
+      cardioCard.style.display = "none";
+      closeCardBtn.style.display = "none";
+    })  
   })
 
 

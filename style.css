@@ -44,7 +44,11 @@
 .red-card {
     width: 100px;
     height: 150px;
-    background-color: #d57475;
+    background-image: url('assets/back-of-card/red-back-card.png');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-color: #d57475; 
     border-radius: 10px;
     margin: 10px;
 }
@@ -52,6 +56,10 @@
 .blue-card {
     width: 100px;
     height: 150px;
+    background-image: url('assets/back-of-card/blue-back-card.png');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
     background-color: #00ccffff;
     border-radius: 10px;
     margin: 10px;
@@ -60,6 +68,10 @@
 .green-card {
     width: 100px;
     height: 150px;
+    background-image: url('assets/back-of-card/green-back-card.png');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
     background-color: #28c900ff;
     border-radius: 10px;
     margin: 10px;
@@ -68,6 +80,10 @@
 .yellow-card {
     width: 100px;
     height: 150px;
+    background-image: url('assets/back-of-card/yellow-back-card.png');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
     background-color: #ffde59;
     border-radius: 10px;
     margin: 10px;
@@ -98,10 +114,13 @@
 }
 
 .big-yellow-card {
-    display: none;
     width: 200px;
     height: 300px;
     background-color: #ffde59;
     border-radius: 10px;
+    margin: 10px;
+}
+
+.close-card {
     margin: 10px;
 }
