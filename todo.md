@@ -16,7 +16,10 @@
 * draw stuff !!!
 
 # CARDS
-* add cards ==> 20 cards for each color + 2 special cards in each 
+* add cards ==> 20 cards for each color + 2 special cards in each ==> DRAW THEM
+* ~~draw from pile when correct color~~
+* ~~open/close~~
+* ~~randomize picture~~
 
 
 # GAME PLAY
@@ -29,7 +32,7 @@
 * ~~add snakes ~~
 * ~~add ladders~~
 
-* restart button
+* ~~restart button~~
 
 * add second player
 

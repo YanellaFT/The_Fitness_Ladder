@@ -110,12 +110,23 @@ function setup() {
   cardioCard = document.querySelector(".big-yellow-card");
   cardioCard.style.display = "none";
 
+// this works so once done with all cards then put them here
+  // fronts = ["one.png", "two.png"];
+  // frontCard = fronts[Math.floor(Math.random() * fronts.length)]
+
   let closeCardBtn = document.querySelector(".close-card");
   closeCardBtn.style.display = "none";
 
   redCard.addEventListener("click", () => {
     armCard.style.display = "block";
     closeCardBtn.style.display = "block";
+
+    // armCard.style.backgroundImage = `url(assets/front-of-card/red/${frontCard})`;
+    // armCard.style.backgroundSize = "cover"; 
+    // armCard.style.backgroundPosition = "center"; 
+    // armCard.style.backgroundRepeat = "no-repeat";
+    // armCard.style.backgroundColor = "#d57475";
+  
 
     closeCardBtn.addEventListener("click", () => {
       armCard.style.display = "none";
@@ -151,6 +162,12 @@ function setup() {
       cardioCard.style.display = "none";
       closeCardBtn.style.display = "none";
     })  
+  })
+
+
+  let restartBtn = document.querySelector(".restart-button");
+  restartBtn.addEventListener("click", () => {
+    player.spot = 0; //reset player position
   })
 
 
