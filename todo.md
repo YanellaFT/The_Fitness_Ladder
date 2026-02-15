@@ -23,9 +23,11 @@
 
 
 # GAME PLAY
-* make it so that if not exact die roll at the end, you move back that many steps
+* make it so that if not exact die roll at the end, you move back that many steps --> hard mode!
+* welcome screen where user chooses 1 or 2 players and hard mode or not
 
 * ~~only allow roll once player stop moving~~
+* only allow new roll once player opens/closes card
 
 * add button to start movement of die (maybe even "Enter amount to move: if input == correct steps needed then move player" for math component)
 
@@ -36,6 +38,7 @@
 
 * add second player
 
+* add amount of exercises count
 
 
 do bunx vite to run

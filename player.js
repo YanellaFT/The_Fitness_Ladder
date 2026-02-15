@@ -2,21 +2,25 @@ class Player {
     constructor() {
         this.spot = 0;
         this.steps = 0;
+        this.direction = 1; // 1 = forward, -1 = backward
     }
-
-    /*roll() {
-        let r = floor(random(1,7));
-        this.spot = this.spot + r;
-    }*/
 
     move(totalSteps) {
         this.steps = totalSteps;
+        this.direction = 1; 
     }
 
     update() {
-        if (this.steps > 0) {
-            this.spot ++;
-            this.steps --;
+        if (this.steps > 0) { //when player is moving
+            this.spot += this.direction; //move one in direction 
+            this.steps --; //steps = steps - 1
+//for hard mode
+            // //if player hit end of board
+            // if (this.spot >= tiles.length - 1) {
+            //     this.spot = tiles.length - 1; //stay on last tile
+            //     this.direction = -1; //reverse direction
+            // }
+
         } else { //when player stops moving 
             //check for road/ladder
             let currentTile = tiles[this.spot];
@@ -54,7 +58,7 @@ class Player {
             }
         }
 
-
+//remove this if on hard mode
         this.spot = min(this.spot, tiles.length - 1); //should make it not go off board
     }
 
