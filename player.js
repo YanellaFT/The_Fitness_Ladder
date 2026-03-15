@@ -58,7 +58,7 @@ class Player {
             }
         }
 
-//remove this if on hard mode
+        //remove this if on hard mode
         this.spot = min(this.spot, tiles.length - 1); //should make it not go off board
     }
 

@@ -165,9 +165,27 @@ function setup() {
   })
 
 
+  let startBtn = document.querySelector(".start-game-btn");
+  let introScreen = document.querySelector(".intro-screen");
+  let gameScreen = document.querySelector(".game-screen");
+  startBtn.addEventListener("click", () => {
+    introScreen.style.display = "none";
+    gameScreen.style.display = "block";
+  })
+
   let restartBtn = document.querySelector(".restart-button");
   restartBtn.addEventListener("click", () => {
     player.spot = 0; //reset player position
+  })
+
+  let helpBtn = document.querySelector(".help-btn");
+  let instructions = document.querySelector(".instructions");
+  helpBtn.addEventListener("click", () => {
+    if (instructions.style.display === "none") {
+      instructions.style.display = "block";
+    } else {
+      instructions.style.display = "none";
+    }
   })
 
 

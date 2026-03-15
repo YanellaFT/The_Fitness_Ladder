@@ -40,5 +40,7 @@
 
 * add amount of exercises count
 
+* add how to play menu
+
 
 do bunx vite to run

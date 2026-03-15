@@ -13,33 +13,63 @@
   </head>
 
   <body>
-    <script type="text/javascript" src="sketch.js"> </script>
-    <script type="text/javascript" src="tile.js"> </script>
-    <script type="text/javascript" src="player.js"> </script>
-  
-    <div class="dice-cont"></div>
-    <button type="botton" class="roll-dice-button"> Roll Dice </button>
-    <!-- <input type="text" class="move-steps-input" placeholder="Enter the amount of steps"> -->
-    <button type="submit" class="move-player-button">Move Player</button>
+    <div class="intro-screen">
+      <h1 class="title">The Fitness Ladder</h1>
+      <h2 class="description">about + description</h2>
 
-    <div class="card-piles">
-      <button type="button" class="red-card"></button>
-      <button type="button" class="blue-card"></button>
-      <button type="button" class="green-card"></button>
-      <button type="button" class="yellow-card"></button>
+      <div class="player-choice">
+        <h3>Number of Players</h3>
+        <button class="one-player-btn" data-val="1">1 Player</button>
+        <button class="two-player-btn" data-val="2">2 Players</button>
+      </div>
+
+      <div class="difficulty-choice">
+        <h3>Difficulty</h3>
+        <button class="normal-mode-btn" data-val="normal">Normal</button>
+        <button class="hard-mode-btn" data-val="hard">Hard</button>
+        <p>Normal: Player can does not need exact die roll</p>
+        <p>Hard: Player needs exact die roll or will go back</p>
+      </div>
+
+      <button class="start-game-btn">START GAME</button>
+
     </div>
 
-    <div class="exercise-card">
-      <div class="big-red-card"></div>
-      <div class="big-blue-card"></div>
-      <div class="big-green-card"></div>
-      <div class="big-yellow-card"></div>
-
-      <button type="button" class="close-card">Close Card</button>
+    <div class="how-to-play">
+      <button class="help-btn">How to Play</button>
+      <p class="instructions"> dfsfsfg </p>
     </div>
 
-    <div class="restart">
-      <button type="button" class="restart-button">Reset Game</button>
+
+    <div class="game-screen">
+      <script type="text/javascript" src="sketch.js"> </script>
+      <script type="text/javascript" src="tile.js"> </script>
+      <script type="text/javascript" src="player.js"> </script>
+    
+      <div class="dice-cont"></div>
+      <button type="botton" class="roll-dice-button"> Roll Dice </button>
+      <!-- <input type="text" class="move-steps-input" placeholder="Enter the amount of steps"> -->
+      <button type="submit" class="move-player-button">Move Player</button>
+
+      <div class="card-piles">
+        <button type="button" class="red-card"></button>
+        <button type="button" class="blue-card"></button>
+        <button type="button" class="green-card"></button>
+        <button type="button" class="yellow-card"></button>
+      </div>
+
+      <div class="exercise-card">
+        <div class="big-red-card"></div>
+        <div class="big-blue-card"></div>
+        <div class="big-green-card"></div>
+        <div class="big-yellow-card"></div>
+
+        <button type="button" class="close-card">Close Card</button>
+      </div>
+
+      <div class="restart">
+        <button type="button" class="restart-button">Reset Game</button>
+      </div>
     </div>
     
   </body>

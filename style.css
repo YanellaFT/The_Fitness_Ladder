@@ -130,3 +130,11 @@
 
     /*customize thissss*/
 }
+
+.instructions {
+    display: none;
+}
+
+.game-screen {
+    display: none;
+}
