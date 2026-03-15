@@ -168,9 +168,11 @@ function setup() {
   let startBtn = document.querySelector(".start-game-btn");
   let introScreen = document.querySelector(".intro-screen");
   let gameScreen = document.querySelector(".game-screen");
+  let board = document.querySelector(".p5Canvas");
   startBtn.addEventListener("click", () => {
     introScreen.style.display = "none";
     gameScreen.style.display = "block";
+    board.style.display = "block";
   })
 
   let restartBtn = document.querySelector(".restart-button");

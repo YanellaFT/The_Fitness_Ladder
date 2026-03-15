@@ -138,3 +138,7 @@
 .game-screen {
     display: none;
 }
+
+.p5Canvas {
+    display: none;
+}
