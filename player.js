@@ -1,8 +1,10 @@
 class Player {
-    constructor() {
+    constructor(playerIndex) {
         this.spot = 0;
         this.steps = 0;
         this.direction = 1; // 1 = forward, -1 = backward
+    
+        this.color = playerIndex === 0 ? "white" : "black"; //if playerIndex === 0 then color is white, else color is black --> New syntax learned :P
     }
 
     move(totalSteps) {
@@ -64,8 +66,9 @@ class Player {
 
     show(tiles) {
         let current = tiles[this.spot];
-        fill(255);
+        fill(this.color);
         let center = current.getCenter();
-        ellipse(center[0], center[1], 15);
+        let offset = this.playerIndex * 5; //offset so if multiple players then they dont overlap
+        ellipse(center[0] + offset, center[1], 15);
     }
 }

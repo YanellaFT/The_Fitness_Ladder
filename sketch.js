@@ -1,6 +1,9 @@
 let tiles = [];
 
-let player;
+let players = [];
+let currentPlayerIndex = 0;
+let numPlayers = 1;
+
 let boardImg;
 
 function preload() {
@@ -57,7 +60,11 @@ function setup() {
   tiles[51].next = 73; //52 to 74 WORKS
 
   //playerrrr
-  player = new Player();
+  const playerButtons = document.querySelectorAll(".player-choice");
+  playerButtons.forEach(btn => {
+    numPlayers = parseInt(btn.getAttribute("data-val"));
+  })
+  //player = new Player();
 
   //diceee
   const diceContainer = document.querySelector(".dice-cont");
@@ -85,7 +92,10 @@ function setup() {
       
       moveButton.addEventListener("click", () => {
         frameRate(10); //slows player down
-        player.move(totalSteps);
+        let currentPlayer = players[currentPlayerIndex];
+        currentPlayer.move(totalSteps);
+
+        //currentPlayerIndex = (currentPlayerIndex + 1) 
         moveButton.disabled = true; //allow 
         btnRollDice.disabled = false;
       });
@@ -170,9 +180,16 @@ function setup() {
   let gameScreen = document.querySelector(".game-screen");
   let board = document.querySelector(".p5Canvas");
   startBtn.addEventListener("click", () => {
+    players = []
+    
     introScreen.style.display = "none";
     gameScreen.style.display = "block";
     board.style.display = "block";
+
+    //initialize players
+    for (let i = 0; i < numPlayers; i++) {
+      playerButtons.push(new Player(i));
+    }
   })
 
   let restartBtn = document.querySelector(".restart-button");
@@ -204,10 +221,11 @@ function draw() {
   for (let tile of tiles) {
     tile.show(tiles);
   }
-
+  
+  let currentPlayer = players[currentPlayerIndex];
   //player.roll();
-  player.update();
-  player.show(tiles);
+  currentPlayer.update();
+  currentPlayer.show(tiles);
 
 } 
 
