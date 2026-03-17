@@ -1,10 +1,11 @@
 let tiles = [];
-
 let players = [];
 let currentPlayerIndex = 0;
 let numPlayers = 1;
-
+//let totalSteps = 0;
 let boardImg;
+
+let diceContainer, rollDiceBtn, closeCardBtn, moveBtn;
 
 function preload() {
   boardImg = loadImage("assets/board.png");
@@ -13,51 +14,9 @@ function preload() {
 function setup() {
   createCanvas(450, 450);
 
-  let sideLength = 46;
-  let offset = 18;
-  let col = 9;
-  let ro = 9;
-
-  //startign spot for tiles (bottom left)
-  let x = offset;
-  let y = height - offset - sideLength;
-
-  //direction of adding new tiles
-  let dir = 1; //going right first
-
-  //create tiles
-  for (let i = 0; i < col * ro; i++) {
-    let tile = new Tile(x, y, sideLength, i + 1, i); //makes new tile itself
-    tiles.push(tile); //adds new tile
-
-    x = x + (sideLength * dir); //make sure to move in right direction
-
-    //edges of board
-    if (x > width - offset - sideLength && dir == 1) {
-      x = width - offset - sideLength;
-      y = y - sideLength;
-      dir = -1; //now moving left
-    } else if (x < offset && dir == -1) {
-      x = offset;
-      y = y - sideLength;
-      dir = 1 //moving right again
-    }
-  }
-
-  //roads down
-  tiles[9].next = 7; //road going from 10 to 8 WORKS
-  tiles[19].next = 1; //20 to 2 WORKS
-  tiles[47].next = 31; //48 to 32 WORKS
-  tiles[54].next = 37; //55 to 38 WORKS
-  tiles[64].next = 46; //65 to 47 WORKS
-  tiles[74].next = 58; //75 to 59 WORKS
-
-  //ladders up
-  tiles[5].next = 29; //ladder going from 6 to 30 WORKS
-  tiles[15].next = 21; //16 to 22 WORKS
-  tiles[32].next = 38; //33 to 39 WORKS
-  tiles[49].next = 77; //50 to 78 WORKS
-  tiles[51].next = 73; //52 to 74 WORKS
+  setupBoard();
+  setupUI();
+  setupEventListeners();
 
   //playerrrr
   const playerButtons = document.querySelectorAll(".player-choice button");
@@ -69,43 +28,11 @@ function setup() {
   //player = new Player();
 
   //diceee
-  const diceContainer = document.querySelector(".dice-cont");
-  const btnRollDice = document.querySelector(".roll-dice-button");
-  let moveButton = document.querySelector(".move-player-button");
-  moveButton.disabled = true;
-
-  //start off with two blank dice
-  diceContainer.appendChild(createDice(0));
-  diceContainer.appendChild(createDice(0));
-
-  //if click then roll die + move player
-  btnRollDice.addEventListener("click", () => {
-    btnRollDice.disabled = true; //does not allow double rolls
-    const animation = setInterval(() => {
-      randomDiceRoll(diceContainer, 2);
-    }, 50);
-
-    setTimeout(() => {
-      clearInterval(animation);
-      moveButton.disabled = false;
-      btnRollDice.disabled = true;
-
-      const totalSteps = randomDiceRoll(diceContainer, 2);
-      
-      moveButton.addEventListener("click", () => {
-        frameRate(10); //slows player down
-        let currentPlayer = players[currentPlayerIndex];
-        currentPlayer.move(totalSteps);
-
-        currentPlayerIndex = (currentPlayerIndex + 1)  % players.length;
-        moveButton.disabled = true; //allow 
-        btnRollDice.disabled = false;
-      });
+  
+  
 
 
-    }, 500);
 
-  });
 
   //cards
   redCard = document.querySelector(".red-card");
@@ -126,7 +53,6 @@ function setup() {
   // fronts = ["one.png", "two.png"];
   // frontCard = fronts[Math.floor(Math.random() * fronts.length)]
 
-  let closeCardBtn = document.querySelector(".close-card");
   closeCardBtn.style.display = "none";
 
   redCard.addEventListener("click", () => {
@@ -240,6 +166,96 @@ function draw() {
   // currentPlayer.show(tiles);
 
 } 
+
+function setupBoard() {
+  let sideLength = 46;
+  let offset = 18;
+  let col = 9;
+  let ro = 9;
+
+  //startign spot for tiles --> bottom left
+  let x = offset;
+  let y = height - offset - sideLength;
+
+  //direction of adding new tiles
+  let dir = 1; //going right first
+
+  //create tiles
+  for (let i = 0; i < col * ro; i++) {
+    let tile = new Tile(x, y, sideLength, i + 1, i); //makes new tile itself
+    tiles.push(tile); //adds new tile
+
+    x = x + (sideLength * dir); //make sure to move in right direction
+
+    //edges of board
+    if (x > width - offset - sideLength && dir == 1) {
+      x = width - offset - sideLength;
+      y = y - sideLength;
+      dir = -1; //now moving left
+    } else if (x < offset && dir == -1) {
+      x = offset;
+      y = y - sideLength;
+      dir = 1 //moving right again
+    }
+  }
+
+  //roads down
+  tiles[9].next = 7; //road going from 10 to 8 WORKS
+  tiles[19].next = 1; //20 to 2 WORKS
+  tiles[47].next = 31; //48 to 32 WORKS
+  tiles[54].next = 37; //55 to 38 WORKS
+  tiles[64].next = 46; //65 to 47 WORKS
+  tiles[74].next = 58; //75 to 59 WORKS
+
+  //ladders up
+  tiles[5].next = 29; //ladder going from 6 to 30 WORKS
+  tiles[15].next = 21; //16 to 22 WORKS
+  tiles[32].next = 38; //33 to 39 WORKS
+  tiles[49].next = 77; //50 to 78 WORKS
+  tiles[51].next = 73; //52 to 74 WORKS
+
+}
+
+function setupUI() {
+  diceContainer = document.querySelector(".dice-cont");
+  rollDiceBtn = document.querySelector(".roll-dice-button");
+  closeCardBtn = document.querySelector(".close-card");
+
+  moveBtn = document.querySelector(".move-player-button");
+  moveBtn.disabled = true; //player cannot move until roll die
+
+
+  //start off with two blank dice
+  diceContainer.appendChild(createDice(0));
+  diceContainer.appendChild(createDice(0));
+}
+
+function setupEventListeners() {
+  //if click then roll die + move player
+  rollDiceBtn.addEventListener("click", () => {
+    rollDiceBtn.disabled = true; //does not allow double rolls
+    const animation = setInterval(() => {
+      randomDiceRoll(diceContainer, 2);
+    }, 50);
+
+    setTimeout(() => {
+      clearInterval(animation);
+      totalSteps = randomDiceRoll(diceContainer, 2);
+      moveBtn.disabled = false;
+      rollDiceBtn.disabled = true;
+    }, 500);
+  });
+  
+  moveBtn.addEventListener("click", () => {
+    frameRate(10); //slows player down so see movement
+    players[currentPlayerIndex].move(totalSteps);
+
+    currentPlayerIndex = (currentPlayerIndex + 1)  % players.length; //change player
+    moveBtn.disabled = true; //allow 
+    rollDiceBtn.disabled = false;
+  });
+}
+
 
 function createDice(number) {
   const dotPositions = {
