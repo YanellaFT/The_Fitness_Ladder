@@ -36,11 +36,28 @@
 
 * ~~restart button~~
 
-* add second player --> ALMOST THERE. Do 1h before commiting. Then fix the double moving 
+* add second player  
 
 * add amount of exercises count
 
 * add how to play menu
 
+
+
+
+ //coloring the tiles
+        if (this.index % 4 == 0) {
+            this.color = "#ffde59";
+            let name = "yellow";
+        } else if (this.index % 4 == 1) {
+            this.color = "#d57475";
+            let name = "red";
+        } else if (this.index % 4 == 2) {
+            this.color = "#00ccffff";
+            let name = "blue";
+        } else if (this.index % 4 == 3) {
+            this.color = "#28c900ff";
+            let name = "green";
+        }
 
 do bunx vite to run
