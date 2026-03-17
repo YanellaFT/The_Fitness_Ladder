@@ -2,21 +2,21 @@ class Player {
     constructor(playerIndex) {
         this.spot = 0;
         this.steps = 0;
-        this.direction = 1; // 1 = forward, -1 = backward
         this.playerIndex = playerIndex;
         this.color = playerIndex === 0 ? "white" : "black"; //if playerIndex === 0 then color is white, else color is black --> New syntax learned :P
     }
 
     move(totalSteps) {
         this.steps = totalSteps;
-        this.direction = 1; 
     }
 
     update() {
         if (this.steps > 0) { //when player is moving
-            this.spot += this.direction; //move one in direction 
+            this.spot ++; //move one in direction 
             this.steps --; //steps = steps - 1
-//for hard mode
+            this.spot = Math.min(this.spot, tiles.length - 1);
+
+            //for hard mode
             // //if player hit end of board
             // if (this.spot >= tiles.length - 1) {
             //     this.spot = tiles.length - 1; //stay on last tile
@@ -60,8 +60,6 @@ class Player {
             }
         }
 
-        //remove this if on hard mode
-        this.spot = min(this.spot, tiles.length - 1); //should make it not go off board
     }
 
     show(tiles) {

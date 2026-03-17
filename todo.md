@@ -36,7 +36,7 @@
 
 * ~~restart button~~
 
-* add second player  
+* add second player  --> fix some logic like cards not working correctly and when player1 makes end dont count their turn anymore
 
 * add amount of exercises count
 
