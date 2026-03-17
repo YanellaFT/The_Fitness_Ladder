@@ -60,10 +60,12 @@ function setup() {
   tiles[51].next = 73; //52 to 74 WORKS
 
   //playerrrr
-  const playerButtons = document.querySelectorAll(".player-choice");
+  const playerButtons = document.querySelectorAll(".player-choice button");
   playerButtons.forEach(btn => {
-    numPlayers = parseInt(btn.getAttribute("data-val"));
-  })
+    btn.addEventListener("click", () => {
+      numPlayers = parseInt(btn.getAttribute("data-val"));
+    });
+  });
   //player = new Player();
 
   //diceee
@@ -95,7 +97,7 @@ function setup() {
         let currentPlayer = players[currentPlayerIndex];
         currentPlayer.move(totalSteps);
 
-        //currentPlayerIndex = (currentPlayerIndex + 1) 
+        currentPlayerIndex = (currentPlayerIndex + 1)  % players.length;
         moveButton.disabled = true; //allow 
         btnRollDice.disabled = false;
       });
@@ -181,21 +183,24 @@ function setup() {
   let board = document.querySelector(".p5Canvas");
   startBtn.addEventListener("click", () => {
     players = []
-    
+
     introScreen.style.display = "none";
     gameScreen.style.display = "block";
     board.style.display = "block";
 
     //initialize players
     for (let i = 0; i < numPlayers; i++) {
-      playerButtons.push(new Player(i));
+      players.push(new Player(i));
     }
-  })
+  });
 
   let restartBtn = document.querySelector(".restart-button");
   restartBtn.addEventListener("click", () => {
-    player.spot = 0; //reset player position
-  })
+    players.forEach(p => {
+      player.spot = 0;
+    });
+    //player.spot = 0; //reset player position
+  });
 
   let helpBtn = document.querySelector(".help-btn");
   let instructions = document.querySelector(".instructions");
@@ -221,11 +226,18 @@ function draw() {
   for (let tile of tiles) {
     tile.show(tiles);
   }
-  
-  let currentPlayer = players[currentPlayerIndex];
-  //player.roll();
-  currentPlayer.update();
-  currentPlayer.show(tiles);
+ 
+  if (players.length > 0) {
+    for (let player of players) {
+      player.update();
+      player.show(tiles);
+    }
+  }
+
+  // let currentPlayer = players[currentPlayerIndex];
+  // //player.roll();
+  // currentPlayer.update();
+  // currentPlayer.show(tiles);
 
 } 
 

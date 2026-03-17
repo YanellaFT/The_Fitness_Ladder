@@ -3,7 +3,7 @@ class Player {
         this.spot = 0;
         this.steps = 0;
         this.direction = 1; // 1 = forward, -1 = backward
-    
+        this.playerIndex = playerIndex;
         this.color = playerIndex === 0 ? "white" : "black"; //if playerIndex === 0 then color is white, else color is black --> New syntax learned :P
     }
 
@@ -68,6 +68,7 @@ class Player {
         let current = tiles[this.spot];
         fill(this.color);
         let center = current.getCenter();
+        //goal for future, try to get offset only if both on same spot
         let offset = this.playerIndex * 5; //offset so if multiple players then they dont overlap
         ellipse(center[0] + offset, center[1], 15);
     }

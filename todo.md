@@ -36,7 +36,7 @@
 
 * ~~restart button~~
 
-* add second player
+* add second player --> ALMOST THERE. Do 1h before commiting. Then fix the double moving 
 
 * add amount of exercises count
 
