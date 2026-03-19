@@ -123,6 +123,7 @@
 
 .close-card {
     margin: 10px;
+    display: none;
 }
 
 .restart-button {

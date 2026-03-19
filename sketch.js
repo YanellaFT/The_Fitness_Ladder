@@ -2,10 +2,14 @@ let tiles = [];
 let players = [];
 let currentPlayerIndex = 0;
 let numPlayers = 1;
-//let totalSteps = 0;
+let totalSteps = 0;
 let boardImg;
 
+let playerButtons, startBtn, introScreen, gameScreen, board;
 let diceContainer, rollDiceBtn, closeCardBtn, moveBtn;
+let restartBtn, helpBtn;
+let redCard, blueCard, greenCard, yellowCard;
+let armCard, abCard, legCard, cardioCard;
 
 function preload() {
   boardImg = loadImage("assets/board.png");
@@ -17,128 +21,6 @@ function setup() {
   setupBoard();
   setupUI();
   setupEventListeners();
-
-  //playerrrr
-  const playerButtons = document.querySelectorAll(".player-choice button");
-  playerButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      numPlayers = parseInt(btn.getAttribute("data-val"));
-    });
-  });
-  //player = new Player();
-
-  //diceee
-  
-  
-
-
-
-
-  //cards
-  redCard = document.querySelector(".red-card");
-  blueCard = document.querySelector(".blue-card");
-  greenCard = document.querySelector(".green-card");
-  yellowCard = document.querySelector(".yellow-card");
-  
-  armCard = document.querySelector(".big-red-card");
-  armCard.style.display = "none";
-  abCard = document.querySelector(".big-blue-card");
-  abCard.style.display = "none";
-  legCard = document.querySelector(".big-green-card");
-  legCard.style.display = "none";
-  cardioCard = document.querySelector(".big-yellow-card");
-  cardioCard.style.display = "none";
-
-// this works so once done with all cards then put them here
-  // fronts = ["one.png", "two.png"];
-  // frontCard = fronts[Math.floor(Math.random() * fronts.length)]
-
-  closeCardBtn.style.display = "none";
-
-  redCard.addEventListener("click", () => {
-    armCard.style.display = "block";
-    closeCardBtn.style.display = "block";
-
-    // armCard.style.backgroundImage = `url(assets/front-of-card/red/${frontCard})`;
-    // armCard.style.backgroundSize = "cover"; 
-    // armCard.style.backgroundPosition = "center"; 
-    // armCard.style.backgroundRepeat = "no-repeat";
-    // armCard.style.backgroundColor = "#d57475";
-  
-
-    closeCardBtn.addEventListener("click", () => {
-      armCard.style.display = "none";
-      closeCardBtn.style.display = "none";
-    })
-  })
-
-  blueCard.addEventListener("click", () => {
-    abCard.style.display = "block";
-    closeCardBtn.style.display = "block";
-
-    closeCardBtn.addEventListener("click", () => {
-      abCard.style.display = "none";
-      closeCardBtn.style.display = "none";
-    })  
-  })
-
-  greenCard.addEventListener("click", () => {
-    legCard.style.display = "block";
-    closeCardBtn.style.display = "block";
-
-    closeCardBtn.addEventListener("click", () => {
-      legCard.style.display = "none";
-      closeCardBtn.style.display = "none";
-    })
-  })
-
-  yellowCard.addEventListener("click", () => {
-    cardioCard.style.display = "block";
-    closeCardBtn.style.display = "block";
-
-    closeCardBtn.addEventListener("click", () => {
-      cardioCard.style.display = "none";
-      closeCardBtn.style.display = "none";
-    })  
-  })
-
-
-  let startBtn = document.querySelector(".start-game-btn");
-  let introScreen = document.querySelector(".intro-screen");
-  let gameScreen = document.querySelector(".game-screen");
-  let board = document.querySelector(".p5Canvas");
-  startBtn.addEventListener("click", () => {
-    players = []
-
-    introScreen.style.display = "none";
-    gameScreen.style.display = "block";
-    board.style.display = "block";
-
-    //initialize players
-    for (let i = 0; i < numPlayers; i++) {
-      players.push(new Player(i));
-    }
-  });
-
-  let restartBtn = document.querySelector(".restart-button");
-  restartBtn.addEventListener("click", () => {
-    players.forEach(p => {
-      player.spot = 0;
-    });
-    //player.spot = 0; //reset player position
-  });
-
-  let helpBtn = document.querySelector(".help-btn");
-  let instructions = document.querySelector(".instructions");
-  helpBtn.addEventListener("click", () => {
-    if (instructions.style.display === "none") {
-      instructions.style.display = "block";
-    } else {
-      instructions.style.display = "none";
-    }
-  })
-
-
 }
 
 function draw() {
@@ -217,6 +99,14 @@ function setupBoard() {
 }
 
 function setupUI() {
+  playerButtons = document.querySelectorAll(".player-choice button");
+
+  startBtn = document.querySelector(".start-game-btn");
+  introScreen = document.querySelector(".intro-screen");
+  
+  gameScreen = document.querySelector(".game-screen");
+  board = document.querySelector(".p5Canvas");
+
   diceContainer = document.querySelector(".dice-cont");
   rollDiceBtn = document.querySelector(".roll-dice-button");
   closeCardBtn = document.querySelector(".close-card");
@@ -228,10 +118,60 @@ function setupUI() {
   //start off with two blank dice
   diceContainer.appendChild(createDice(0));
   diceContainer.appendChild(createDice(0));
+
+
+  //cards
+  redCard = document.querySelector(".red-card");
+  blueCard = document.querySelector(".blue-card");
+  greenCard = document.querySelector(".green-card");
+  yellowCard = document.querySelector(".yellow-card");
+  
+  armCard = document.querySelector(".big-red-card");
+  armCard.style.display = "none";
+  abCard = document.querySelector(".big-blue-card");
+  abCard.style.display = "none";
+  legCard = document.querySelector(".big-green-card");
+  legCard.style.display = "none";
+  cardioCard = document.querySelector(".big-yellow-card");
+  cardioCard.style.display = "none";
+
+  // this works so once done with all cards then put them here
+  // fronts = ["one.png", "two.png"];
+  // frontCard = fronts[Math.floor(Math.random() * fronts.length)]
+
+
+  restartBtn = document.querySelector(".restart-button");
+  
+  helpBtn = document.querySelector(".help-btn");
+  instructions = document.querySelector(".instructions");
+
 }
 
 function setupEventListeners() {
-  //if click then roll die + move player
+  //set up num of playerrrrs
+  playerButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      numPlayers = parseInt(btn.getAttribute("data-val"));
+    });
+  });
+
+
+  //start game
+  startBtn.addEventListener("click", () => {
+    players = []
+
+    introScreen.style.display = "none";
+    gameScreen.style.display = "block";
+    board.style.display = "block";
+
+    //initialize players
+    for (let i = 0; i < numPlayers; i++) {
+      players.push(new Player(i));
+    }
+  });
+
+
+  //if click then roll die
   rollDiceBtn.addEventListener("click", () => {
     rollDiceBtn.disabled = true; //does not allow double rolls
     const animation = setInterval(() => {
@@ -241,19 +181,91 @@ function setupEventListeners() {
     setTimeout(() => {
       clearInterval(animation);
       totalSteps = randomDiceRoll(diceContainer, 2);
+      
       moveBtn.disabled = false;
       rollDiceBtn.disabled = true;
     }, 500);
   });
   
+
+  //if click then move player
   moveBtn.addEventListener("click", () => {
     frameRate(10); //slows player down so see movement
     players[currentPlayerIndex].move(totalSteps);
 
     currentPlayerIndex = (currentPlayerIndex + 1)  % players.length; //change player
+    
     moveBtn.disabled = true; //allow 
     rollDiceBtn.disabled = false;
   });
+
+
+  //clicking cards 
+  redCard.addEventListener("click", () => {
+    armCard.style.display = "block";
+    closeCardBtn.style.display = "block";
+
+    // armCard.style.backgroundImage = `url(assets/front-of-card/red/${frontCard})`;
+    // armCard.style.backgroundSize = "cover"; 
+    // armCard.style.backgroundPosition = "center"; 
+    // armCard.style.backgroundRepeat = "no-repeat";
+    // armCard.style.backgroundColor = "#d57475";
+  
+
+    closeCardBtn.addEventListener("click", () => {
+      armCard.style.display = "none";
+      closeCardBtn.style.display = "none";
+    })
+  })
+
+  blueCard.addEventListener("click", () => {
+    abCard.style.display = "block";
+    closeCardBtn.style.display = "block";
+
+    closeCardBtn.addEventListener("click", () => {
+      abCard.style.display = "none";
+      closeCardBtn.style.display = "none";
+    })  
+  })
+
+  greenCard.addEventListener("click", () => {
+    legCard.style.display = "block";
+    closeCardBtn.style.display = "block";
+
+    closeCardBtn.addEventListener("click", () => {
+      legCard.style.display = "none";
+      closeCardBtn.style.display = "none";
+    })
+  })
+
+  yellowCard.addEventListener("click", () => {
+    cardioCard.style.display = "block";
+    closeCardBtn.style.display = "block";
+
+    closeCardBtn.addEventListener("click", () => {
+      cardioCard.style.display = "none";
+      closeCardBtn.style.display = "none";
+    })  
+  })
+
+
+  //restart game
+  restartBtn.addEventListener("click", () => {
+    players.forEach(p => {
+      player.spot = 0;
+    });
+    //player.spot = 0; //reset player position
+  });
+
+
+  //help button that shows instructions
+  helpBtn.addEventListener("click", () => {
+    if (instructions.style.display === "none") {
+      instructions.style.display = "block";
+    } else {
+      instructions.style.display = "none";
+    }
+  })
 }
 
 

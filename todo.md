@@ -37,6 +37,8 @@
 * ~~restart button~~
 
 * add second player  --> fix some logic like cards not working correctly and when player1 makes end dont count their turn anymore
+--> when in 2 player mode, cards only read for black player
+* restart btn doesnt work
 
 * add amount of exercises count
 
