@@ -3,7 +3,18 @@ class Player {
         this.spot = 0;
         this.steps = 0;
         this.playerIndex = playerIndex;
-        this.color = playerIndex === 0 ? "white" : "black"; //if playerIndex === 0 then color is white, else color is black --> New syntax learned :P
+        //this.color = playerIndex === 0 ? "white" : "black"; //if playerIndex === 0 then color is white, else color is black --> New syntax learned :P
+        
+        if (playerIndex === 0) {
+            this.color = "white";
+        } else if (playerIndex === 1) {
+            this.color = "black";
+        } else if (playerIndex === 2) {
+            this.color = "rgba(129, 89, 4, 1)";
+        } else if (playerIndex === 3) {
+            this.color = "grey";
+        }
+        //this.element.style.outline = this.color;
     }
 
     move(totalSteps) {
@@ -68,6 +79,6 @@ class Player {
         let center = current.getCenter();
         //goal for future, try to get offset only if both on same spot
         let offset = this.playerIndex * 5; //offset so if multiple players then they dont overlap
-        ellipse(center[0] + offset, center[1], 15);
+        ellipse(center[0] - 5 + offset, center[1], 15);
     }
 }

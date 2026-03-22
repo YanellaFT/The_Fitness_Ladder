@@ -196,7 +196,7 @@ function setupEventListeners() {
     currentPlayerIndex = (currentPlayerIndex + 1)  % players.length; //change player
     
     moveBtn.disabled = true; //allow 
-    rollDiceBtn.disabled = false;
+    rollDiceBtn.disabled = true;
   });
 
 
@@ -215,6 +215,7 @@ function setupEventListeners() {
     closeCardBtn.addEventListener("click", () => {
       armCard.style.display = "none";
       closeCardBtn.style.display = "none";
+      rollDiceBtn.disabled = false;
     })
   })
 
@@ -225,6 +226,7 @@ function setupEventListeners() {
     closeCardBtn.addEventListener("click", () => {
       abCard.style.display = "none";
       closeCardBtn.style.display = "none";
+      rollDiceBtn.disabled = false;
     })  
   })
 
@@ -235,6 +237,7 @@ function setupEventListeners() {
     closeCardBtn.addEventListener("click", () => {
       legCard.style.display = "none";
       closeCardBtn.style.display = "none";
+      rollDiceBtn.disabled = false;
     })
   })
 
@@ -245,16 +248,16 @@ function setupEventListeners() {
     closeCardBtn.addEventListener("click", () => {
       cardioCard.style.display = "none";
       closeCardBtn.style.display = "none";
+      rollDiceBtn.disabled = false;
     })  
   })
 
 
   //restart game
   restartBtn.addEventListener("click", () => {
-    players.forEach(p => {
+    players.forEach(player => {
       player.spot = 0;
     });
-    //player.spot = 0; //reset player position
   });
 
 
