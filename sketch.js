@@ -135,9 +135,9 @@ function setupUI() {
   cardioCard = document.querySelector(".big-yellow-card");
   cardioCard.style.display = "none";
 
-  // this works so once done with all cards then put them here
-  // fronts = ["one.png", "two.png"];
-  // frontCard = fronts[Math.floor(Math.random() * fronts.length)]
+  //this works so once done with all cards then put them here
+  fronts = ["one.png", "two.png"];
+  frontCard = fronts[Math.floor(Math.random() * fronts.length)]
 
 
   restartBtn = document.querySelector(".restart-button");
@@ -152,6 +152,19 @@ function setupEventListeners() {
   playerButtons.forEach(btn => {
     btn.addEventListener("click", () => {
       numPlayers = parseInt(btn.getAttribute("data-val"));
+      if (numPlayers === 1) {
+        btn.style.backgroundColor = "#d57475";
+        btn.style.color = "#000000ff"
+      } else if (numPlayers === 2) {
+        btn.style.backgroundColor = "#00ccffff";
+        btn.style.color = "#000000ff"
+      } else if (numPlayers === 3) {
+        btn.style.backgroundColor = "#28c900ff";
+        btn.style.color = "#000000ff"
+      } else if (numPlayers === 4) {
+        btn.style.backgroundColor = "#ffde59";
+        btn.style.color = "#000000ff"
+      }
     });
   });
 
@@ -205,10 +218,10 @@ function setupEventListeners() {
     armCard.style.display = "block";
     closeCardBtn.style.display = "block";
 
-    // armCard.style.backgroundImage = `url(assets/front-of-card/red/${frontCard})`;
-    // armCard.style.backgroundSize = "cover"; 
-    // armCard.style.backgroundPosition = "center"; 
-    // armCard.style.backgroundRepeat = "no-repeat";
+    armCard.style.backgroundImage = `url(assets/front-of-card/red/${frontCard})`;
+    armCard.style.backgroundSize = "cover"; 
+    armCard.style.backgroundPosition = "center"; 
+    armCard.style.backgroundRepeat = "no-repeat";
     // armCard.style.backgroundColor = "#d57475";
   
 

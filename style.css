@@ -1,3 +1,57 @@
+body {
+    color: #ebdec7;
+    /* background-color: #755609; */
+    background-image: url('assets/woodbg.png');
+}
+
+.player-btn {
+    border-radius: 5px;
+
+    background-color: #898989;
+    color: #ebdec7;
+    border-color: #898989;
+
+    padding: 3px 10px;
+    margin-left: 1px;
+    margin-bottom: 5px;
+}
+.player-btn:hover {
+    color: #898989;
+    background-color: #ebdec7;
+}
+
+.start-game-btn {
+    border-radius: 5px;
+
+    background-color: #898989;
+    color: #ebdec7;
+    border-color: #898989;
+
+    padding: 3px 10px;
+    margin-left: 1px;
+    margin-bottom: 5px;
+}
+.start-game-btn:hover {
+    color: #898989;
+    background-color: #ebdec7;
+}
+
+.help-btn {
+    border-radius: 5px;
+
+    background-color: #898989;
+    color: #ebdec7;
+    border-color: #898989;
+
+    padding: 3px 10px;
+    margin-left: 1px;
+    margin-bottom: 5px;
+}
+.help-btn:hover {
+    color: #898989;
+    background-color: #ebdec7;
+}
+
 .dice-cont {
     display: flex;
 
@@ -9,6 +63,7 @@
     position: relative;
     margin: 5px;
 
+    background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgb(0, 0, 0, .25)
 }
