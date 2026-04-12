@@ -11,6 +11,8 @@ let restartBtn, helpBtn;
 let redCard, blueCard, greenCard, yellowCard;
 let armCard, abCard, legCard, cardioCard;
 
+let isDragging = false;
+
 function preload() {
   boardImg = loadImage("assets/board.png");
 }
@@ -275,13 +277,36 @@ function setupEventListeners() {
 
 
   //help button that shows instructions
+  helpBtn.innerText = "How to Play";
   helpBtn.addEventListener("click", () => {
     if (instructions.style.display === "none") {
       instructions.style.display = "block";
+      helpBtn.innerText = 'Close Instructions';
     } else {
       instructions.style.display = "none";
+      helpBtn.innerText = "How to Play";
     }
-  })
+  });
+
+  instructions.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    instructions.style.cursor = "grabbing";
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    if (isDragging) {
+      let x = e.clientX;
+      let y = e.clientY;
+      instructions.style.left = x + "px";
+      instructions.style.top = y + "px";
+      instructions.style.margin = "0"
+    }
+  });
+
+  document.addEventListener("mouseup", () => {
+    isDragging = false;
+    instructions.style.cursor = "grab";
+  });
 }
 
 

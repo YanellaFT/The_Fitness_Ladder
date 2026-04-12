@@ -40,9 +40,8 @@
 * ~~add 4 players~~ --> fix placing & color
 * add input for how many players
 
-* add amount of exercises count
 
-* add how to play menu
+* add how to play menu ---> make it moveable
 
 
 
