@@ -11,13 +11,16 @@ body {
 }
 
 .player-btn {
-    border-radius: 5px;
+    box-shadow: none; /*doest workkkk !!!!*/
+
+    border-radius: 20px;
+    border-width: 3px;
 
     background-color: #898989;
     color: #ebdec7;
     border-color: #898989;
 
-    padding: 3px 10px;
+    padding: 10px 10px;
     margin-left: 1px;
     margin-bottom: 5px;
     
@@ -25,16 +28,31 @@ body {
 .player-btn:hover {
     color: #898989;
     background-color: #ebdec7;
+    border-color: #898989 !important;
+}
+
+#Pone {
+    border-color: #d57475;
+}
+#Ptwo{
+    border-color: #00ccffff;
+}
+#Pthree {
+    border-color: #28c900ff;
+}
+#Pfour {
+    border-color: #ffde59;
 }
 
 .start-game-btn {
-    border-radius: 5px;
+    border-radius:20px;
+    border-width: 3px;
 
     background-color: #898989;
     color: #ebdec7;
-    border-color: #898989;
+    border-color: #7d3434;
 
-    padding: 3px 10px;
+    padding: 10px 10px;
     margin-left: 1px;
     margin-bottom: 5px;
 }
@@ -44,13 +62,14 @@ body {
 }
 
 .help-btn {
-    border-radius: 5px;
+    border-radius: 20px;
+    border-width: 3px;
 
     background-color: #898989;
     color: #ebdec7;
     border-color: #898989;
 
-    padding: 3px 10px;
+    padding: 10px 10px;
     margin-left: 1px;
     margin-bottom: 5px;
 }

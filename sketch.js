@@ -167,6 +167,7 @@ function setupEventListeners() {
         btn.style.backgroundColor = "#ffde59";
         btn.style.color = "#000000ff"
       }
+      btn.style.borderColor = "#898989";
     });
   });
 

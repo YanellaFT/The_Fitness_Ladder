@@ -41,8 +41,7 @@
 * add input for how many players
 
 
-* add how to play menu ---> make it moveable
-
+~~* add how to play menu ---> make it moveable~~
 
 
 
