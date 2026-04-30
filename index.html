@@ -19,42 +19,47 @@
 
       <div class="player-choice">
         <h3>Number of Players</h3>
-        <button class="player-btn" data-val="1">1 Player</button>
-        <button class="player-btn" data-val="2">2 Players</button>
-        <button class="player-btn" data-val="3">3 Players</button>
-        <button class="player-btn" data-val="4">4 Players</button>
+        <button id="btn" class="player-btn" data-val="1">1 Player</button>
+        <button id="btn" class="player-btn" data-val="2">2 Players</button>
+        <button id="btn" class="player-btn" data-val="3">3 Players</button>
+        <button id="btn" class="player-btn" data-val="4">4 Players</button>
       </div>
 
       <!-- <div class="difficulty-choice">
         <h3>Difficulty</h3>
-        <button class="normal-mode-btn" data-val="normal">Normal</button>
-        <button class="hard-mode-btn" data-val="hard">Hard</button>
+        <button id="btn" class="normal-mode-btn" data-val="normal">Normal</button>
+        <button id="btn" class="hard-mode-btn" data-val="hard">Hard</button>
         <p>Normal: Player can does not need exact die roll</p>
         <p>Hard: Player needs exact die roll or will go back</p>
       </div> -->
 
-      <button class="start-game-btn">START GAME</button>
+      <button id="btn" class="start-game-btn">START GAME</button>
 
     </div>
 
     <div class="how-to-play">
-      <button class="help-btn"></button>
+      <button id="btn" class="help-btn"></button>
       <p class="instructions" draggable="true"> 
         <b>Instructions:</b>  (drag to move)
-        <br>
+        <br> <br>
         1. Roll the die
+        <br> 
         <br>
         2. Add the die together and move your player the corresponding amount of steps
         <br>
         * If you land at the bottom on a ladder, move up! 
         <br>
-        *If you land at the top or a road, go down.
+        * If you land at the top or a road, go down.
+        <br>
         <br>
         3. Pick up a matching colored card to the spot you landed on
         <br>
+        <br>
         4. Do the exercise on the card
         <br>
+        <br>
         5. Next turn
+        <br>
         <br>
       </p>
     </div>
@@ -66,15 +71,15 @@
       <script type="text/javascript" src="player.js"> </script>
     
       <div class="dice-cont"></div>
-      <button type="botton" class="roll-dice-button"> Roll Dice </button>
+      <button id="btn" type="botton" class="roll-dice-button"> Roll Dice </button>
       <!-- <input type="text" class="move-steps-input" placeholder="Enter the amount of steps"> -->
-      <button type="submit" class="move-player-button">Move Player</button>
+      <button id="btn" type="submit" class="move-player-button">Move Player</button>
 
       <div class="card-piles">
-        <button type="button" class="red-card"></button>
-        <button type="button" class="blue-card"></button>
-        <button type="button" class="green-card"></button>
-        <button type="button" class="yellow-card"></button>
+        <button id="btn" type="button" class="red-card"></button>
+        <button id="btn" type="button" class="blue-card"></button>
+        <button id="btn" type="button" class="green-card"></button>
+        <button id="btn" type="button" class="yellow-card"></button>
       </div>
 
       <div class="exercise-card">
@@ -83,11 +88,11 @@
         <div class="big-green-card"></div>
         <div class="big-yellow-card"></div>
 
-        <button type="button" class="close-card">Close Card</button>
+        <button id="btn" type="button" class="close-card">Close Card</button>
       </div>
 
       <div class="restart">
-        <button type="button" class="restart-button">Reset Game</button>
+        <button id="btn" type="button" class="restart-button">Reset Game</button>
       </div>
     </div>
     

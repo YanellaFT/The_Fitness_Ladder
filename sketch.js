@@ -178,6 +178,8 @@ function setupEventListeners() {
     introScreen.style.display = "none";
     gameScreen.style.display = "block";
     board.style.display = "block";
+    board.style.justifyContent = "center";
+    board.style.margin = "100px auto";
 
     //initialize players
     for (let i = 0; i < numPlayers; i++) {
@@ -277,14 +279,14 @@ function setupEventListeners() {
 
 
   //help button that shows instructions
-  helpBtn.innerText = "How to Play";
+  helpBtn.innerText = "Instructions";
   helpBtn.addEventListener("click", () => {
     if (instructions.style.display === "none") {
       instructions.style.display = "block";
       helpBtn.innerText = 'Close Instructions';
     } else {
       instructions.style.display = "none";
-      helpBtn.innerText = "How to Play";
+      helpBtn.innerText = "Instructions";
     }
   });
 

@@ -4,6 +4,16 @@ body {
     background-image: url('assets/woodbg.png');
 
     text-align: CENTER;
+    font-family: cursive;
+}
+
+p {
+    text-indent: 50px;
+}
+
+#btn {
+    width: 100px;
+    font-family: cursive;
 }
 
 .player-choice {
@@ -60,6 +70,10 @@ body {
 }
 
 .instructions {
+    display: none;
+}
+
+.instructions {
     display: none; 
     position: fixed;
 
@@ -84,7 +98,7 @@ body {
 
 .dice-cont {
     display: flex;
-
+    justify-content: center;
 }
 
 .dice {
@@ -115,15 +129,39 @@ body {
 }
 
 .roll-dice-button {
-    margin-top: 10px;
+    margin: 10px;
 
-    /*customize thissss*/
+    border-radius: 5px;
+
+    background-color: #898989;
+    color: #ebdec7;
+    border-color: #898989;
+
+    padding: 3px 10px;
+    margin-left: 1px;
+    margin-bottom: 5px;
+}
+.roll-dice-button:hover {
+    color: #898989;
+    background-color: #ebdec7;
 }
 
 .move-player-button {
-    margin-top: 10px;
+    margin-left: 100px;
 
-    /*customizeee*/
+    border-radius: 5px;
+
+    background-color: #898989;
+    color: #ebdec7;
+    border-color: #898989;
+
+    padding: 3px 10px;
+    margin-left: 1px;
+    margin-bottom: 5px;
+}
+.move-player-button:hover {
+    color: #898989;
+    background-color: #ebdec7;
 }
 
 .red-card {
@@ -209,16 +247,36 @@ body {
 .close-card {
     margin: 10px;
     display: none;
+
+    border-radius: 5px;
+
+    background-color: #898989;
+    color: #ebdec7;
+    border-color: #898989;
+
+    padding: 3px 10px;
+    margin-left: 1px;
+    margin-bottom: 5px;
+}
+.close-card:hover {
+    color: #898989;
+    background-color: #ebdec7;
 }
 
 .restart-button {
-    margin-top: 10px;
+    border-radius: 5px;
 
-    /*customize thissss*/
+    background-color: #898989;
+    color: #ebdec7;
+    border-color: #898989;
+
+    padding: 3px 10px;
+    margin-left: 1px;
+    margin-bottom: 5px;
 }
-
-.instructions {
-    display: none;
+.restart-button:hover {
+    color: #898989;
+    background-color: #ebdec7;
 }
 
 .game-screen {
