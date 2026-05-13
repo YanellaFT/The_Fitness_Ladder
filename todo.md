@@ -43,6 +43,8 @@
 
 * ~~add how to play menu ---> make it moveable~~
 
+* BACK TO HOME SCREEN button on game-play screen
+
 
 
 

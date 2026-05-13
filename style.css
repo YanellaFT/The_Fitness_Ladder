@@ -2,38 +2,104 @@ body {
     color: #ebdec7;
     /* background-color: #755609; */
     background-image: url('assets/woodbg.png');
+    background-size:cover;
+    background-position: center;
 
     text-align: CENTER;
     font-family: cursive;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    overflow-x: hidden;
 }
 
-p {
-    text-indent: 50px;
+
+.intro-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: clamp(16px, 4vw, 40px);
 }
+
+.t {
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+    flex-basis: clamp(60px, 10vh, 100px);
+}
+
+.title {
+    background-color: #898989;
+    border-radius: 18px;
+    /* box-width: 400px;
+    height: 80px; */
+
+    padding: clamp(10px, 2vw, 20px);
+    font-size: clamp(18px, 4vw, 32px);
+}
+.title:hover {
+    scale: 110%;
+    rotate: -10deg;
+    transition: ease 0.3s;
+}
+.title:not(:hover) {
+    scale: 100%;
+    rotate: 0deg;
+    transition: ease 0.3s;
+}
+
 
 #btn {
-    width: 100px;
+    width: clamp(80px, 15vw, 100px);
     font-family: cursive;
+    font-size: clamp(12px, 1.5vw, 15px);
+
+    border-radius: 20px;
+    border-width: 1.5px;
+    border-color:#000000;
+    border-style: solid;
+
+    padding: clamp(6px, 1.5vw, 10px) clamp(8px, 2vw, 10px);
+    margin-left: 1px;
+
+    cursor: pointer;
+}
+#btn:hover {
+    color: #898989;
+    background-color: #ebdec7;
+    border-color: #898989 !important;
 }
 
 .player-choice {
-    margin: 50px;
+    margin: clamp(20px, 5vw, 50px);
 }
 
 .player-btn {
-    box-shadow: none; /*doest workkkk !!!!*/
-
     border-radius: 20px;
     border-width: 3px;
+    border-style: solid;
 
     background-color: #898989;
     color: #ebdec7;
     border-color: #898989;
 
-    padding: 10px 10px;
+    padding: clamp(6px, 1.5vw, 10px) clamp(8px, 2vw, 10px);
     margin-left: 1px;
     margin-bottom: 5px;
     
+    font-family: cursive;
+    font-size: clamp(12px, 1.5vw, 15px);
+    /* font-weight: bold; */
+    
+    width: clamp(70px, 15vw, 100px);
+
+    cursor: pointer;
 }
 .player-btn:hover {
     color: #898989;
@@ -54,17 +120,22 @@ p {
     border-color: #ffde59;
 }
 
+
 .start-game-btn {
     border-radius:20px;
     border-width: 3px;
 
     background-color: #898989;
     color: #ebdec7;
-    border-color: #7d3434;
+    border-color: #000000;
 
-    padding: 10px 10px;
+    padding: clamp(6px, 1.5vw, 10px) clamp(8px, 2vw, 10px);
     margin-left: 1px;
     margin-bottom: 5px;
+
+    font-size: clamp(12px, 1.5vw, 15px);
+
+    cursor: pointer;
 }
 .start-game-btn:hover {
     color: #898989;
@@ -72,6 +143,8 @@ p {
 }
 
 .help-btn {
+    width: clamp(80px, 15vw, 115px) !important;
+
     border-radius: 20px;
     border-width: 3px;
 
@@ -79,28 +152,36 @@ p {
     color: #ebdec7;
     border-color: #898989;
 
-    padding: 10px 10px;
+    padding: clamp(6px, 1.5vw, 10px) clamp(8px, 2vw, 10px);
     margin-left: 1px;
     margin-bottom: 5px;
+
+    font-size: clamp(12px, 1.5vw, 15px);
+
+    cursor: pointer;
+    width: 100px;
 }
 .help-btn:hover {
     color: #898989;
     background-color: #ebdec7;
 }
 
-.instructions {
-    display: none;
+.how-to-play {
+    position: fixed;
+    top: clamp(8px, 2vw, 15px);
+    right: clamp(8px, 2vw, 15px);
+    z-index: 50;
 }
 
 .instructions {
     display: none; 
     position: fixed;
 
-    top: 50px;
-    left: 50px;
-    z-index: 10000000;
+    top: clamp(40px, 8vw, 50px);
+    left: clamp(40px, 3vw, 50px);
+    z-index: 100;
 
-    width: 300px;
+    width: clamp(220px, 45vw, 300px);
     padding: 10px;
 
     border-radius: 15px;
@@ -111,6 +192,8 @@ p {
 
     text-align: left;
 
+    font-size: clamp(11px, 1.4vw, 14px);
+
     cursor: grab;
     user-select: none;
 }
@@ -118,26 +201,33 @@ p {
 .dice-cont {
     display: flex;
     justify-content: center;
+
+    position: fixed;
+    top: 5%;
+    left: 50%;
+
+    transform: translateX(-50%);
+    z-index: 10;
 }
 
 .dice {
-    width: 80px;
-    height: 80px;
+    width: clamp(50px, 8vw, 80px);
+    height: clamp(50px, 8vw, 80px);
     position: relative;
-    margin: 5px;
+    margin: clamp(3px, 0.5vw, 5px);
 
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgb(0, 0, 0, .25)
+    box-shadow: 0 0 10px rgb(0, 0, 0, .25);
 }
 
 .dice-dot {
-    --top: 0%; /* allows for changing in js*/
-    --left: 0%; /*so that we can have different numbers*/
+    --top: 0%; 
+    --left: 0%; 
 
     background-color:rgb(0, 0, 0);
-    width: 15px;
-    height: 15px;
+    width: clamp(9px, 1.5vw, 15px);
+    height: clamp(9px, 1.5vw, 15px);
     border-radius: 50%;
 
     position: absolute;
@@ -148,7 +238,10 @@ p {
 }
 
 .roll-dice-button {
-    margin: 10px;
+    position: fixed;
+
+    top: 20%;
+    left: calc(50% - clamp(45px, 8vw, 70px));
 
     border-radius: 5px;
 
@@ -159,6 +252,10 @@ p {
     padding: 3px 10px;
     margin-left: 1px;
     margin-bottom: 5px;
+
+    font-size: clamp(12px, 1.5vw, 15px);
+
+    cursor:pointer;
 }
 .roll-dice-button:hover {
     color: #898989;
@@ -166,7 +263,11 @@ p {
 }
 
 .move-player-button {
-    margin-left: 100px;
+    position: fixed;
+    top: clamp(100px, 17vh, 125px);
+    left: calc(50% + clamp(5px, 1vw, 10px));
+
+    /* margin-left: 100px; */
 
     border-radius: 5px;
 
@@ -177,90 +278,161 @@ p {
     padding: 3px 10px;
     margin-left: 1px;
     margin-bottom: 5px;
+    
+    font-size: clamp(12px, 1.5vw, 15px);
+
+    cursor:pointer;
 }
 .move-player-button:hover {
     color: #898989;
     background-color: #ebdec7;
 }
 
+.card-piles {
+    position: fixed;
+
+    top: 50%;
+    left: clamp(5px, 8vw, 15%);
+
+    transform: translateY(-50%);
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(4px, 1vw, 10px);
+    
+    z-index: 3;
+}
+
 .red-card {
-    width: 100px;
-    height: 150px;
+    width: clamp(60px, 10vw, 100px);
+    height: clamp(90px, 15vw, 150px);
     background-image: url('assets/back-of-card/red-back-card.png');
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
     background-color: #d57475; 
     border-radius: 10px;
-    margin: 10px;
+    margin: clamp(4px, 1vw, 10px);
+
+    border-style: solid;
+
+    cursor: pointer;
+
+    transition: scale 0.15s ease;
+}
+.red-card:hover {
+    scale: 110%;
 }
 
 .blue-card {
-    width: 100px;
-    height: 150px;
+    width: clamp(60px, 10vw, 100px);
+    height: clamp(90px, 15vw, 150px);
     background-image: url('assets/back-of-card/blue-back-card.png');
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
-    background-color: #00ccffff;
+    background-color: #00ccffff; 
     border-radius: 10px;
-    margin: 10px;
+    margin: clamp(4px, 1vw, 10px);
+
+    border-style: solid;
+
+    cursor: pointer;
+
+    transition: scale 0.15s ease;
+}
+.blue-card:hover {
+    scale: 110%;
 }
 
 .green-card {
-    width: 100px;
-    height: 150px;
+width: clamp(60px, 10vw, 100px);
+    height: clamp(90px, 15vw, 150px);
     background-image: url('assets/back-of-card/green-back-card.png');
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
-    background-color: #28c900ff;
+    background-color: #28c900ff; 
     border-radius: 10px;
-    margin: 10px;
+    margin: clamp(4px, 1vw, 10px);
+
+    border-style: solid;
+
+    cursor: pointer;
+
+    transition: scale 0.15s ease;
+    
+}
+.green-card:hover {
+    scale: 110%;
 }
 
 .yellow-card {
-    width: 100px;
-    height: 150px;
+    border-style: solid;
+    width: clamp(60px, 10vw, 100px);
+    height: clamp(90px, 15vw, 150px);
     background-image: url('assets/back-of-card/yellow-back-card.png');
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
-    background-color: #ffde59;
+    background-color: #ffde59; 
     border-radius: 10px;
-    margin: 10px;
+    margin: clamp(4px, 1vw, 10px);
+
+    border-style: solid;
+
+    cursor: pointer;
+
+    transition: scale 0.15s ease;
+}
+.yellow-card:hover {
+    scale: 110%;
 }
 
 .big-red-card {
-    width: 200px;
-    height: 300px;
+    width:  clamp(120px, 20vw, 200px);
+    height: clamp(180px, 30vw, 300px);
     background-color: #d57475;
     border-radius: 10px;
     margin: 10px;
 }
 
 .big-blue-card {
-    width: 200px;
-    height: 300px;
+    width:  clamp(120px, 20vw, 200px);
+    height: clamp(180px, 30vw, 300px);
     background-color: #00ccffff;
     border-radius: 10px;
     margin: 10px;
 }
 
 .big-green-card {
-    width: 200px;
-    height: 300px;
+    width:  clamp(120px, 20vw, 200px);
+    height: clamp(180px, 30vw, 300px);
     background-color: #28c900ff;
     border-radius: 10px;
     margin: 10px;
 }
 
 .big-yellow-card {
-    width: 200px;
-    height: 300px;
+    width:  clamp(120px, 20vw, 200px);
+    height: clamp(180px, 30vw, 300px);
     background-color: #ffde59;
     border-radius: 10px;
     margin: 10px;
+}
+
+.exercise-card {
+    display: flex;
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: 11;
+
+    align-items: center;
+    justify-content: center;
 }
 
 .close-card {
@@ -276,11 +448,16 @@ p {
     padding: 3px 10px;
     margin-left: 1px;
     margin-bottom: 5px;
+
+    font-size: clamp(12px, 1.5vw, 15px);
+
+    cursor: pointer;
 }
 .close-card:hover {
     color: #898989;
     background-color: #ebdec7;
 }
+
 
 .restart-button {
     border-radius: 5px;
@@ -292,6 +469,10 @@ p {
     padding: 3px 10px;
     margin-left: 1px;
     margin-bottom: 5px;
+
+    font-size: clamp(12px, 1.5vw, 15px);
+
+    cursor: pointer;
 }
 .restart-button:hover {
     color: #898989;
@@ -300,8 +481,15 @@ p {
 
 .game-screen {
     display: none;
+    width: 100vw;
+    height: 100vh;
+
+    position: relative;
 }
 
 .p5Canvas {
     display: none;
+
+    top: 50%;
+    right: 15%;
 }
