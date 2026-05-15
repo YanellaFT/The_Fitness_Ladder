@@ -1,13 +1,14 @@
 let tiles = [];
 let players = [];
 let currentPlayerIndex = 0;
+let movingPlayerIndex = 0;
 let numPlayers = 1;
 let totalSteps = 0;
 let boardImg;
 
 let playerButtons, startBtn, introScreen, gameScreen, board;
-let diceContainer, rollDiceBtn, closeCardBtn, moveBtn;
-let restartBtn, helpBtn;
+let diceContainer, rollDiceBtn, closeCardBtn; //moveBtn;
+let restartBtn, homeBtn, helpBtn;
 let redCard, blueCard, greenCard, yellowCard;
 let armCard, abCard, legCard, cardioCard;
 
@@ -18,7 +19,14 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(450, 450);
+  const canvasDiv = document.createElement("div");
+  const canvasCont = document.createTextNode(createCanvas(450, 450));
+  canvasDiv.appendChild(canvasCont);
+  canvasDiv.id = "p5Canvas";
+  const canvasCurrDiv = document.getElementById("p5Canvas");
+  // document.body.insertBefore(canvasDiv, canvasCurrDiv);
+
+  // canvasCont.style.display = "none"; //hide canvas until start game
 
   setupBoard();
   setupUI();
@@ -107,14 +115,14 @@ function setupUI() {
   introScreen = document.querySelector(".intro-screen");
   
   gameScreen = document.querySelector(".game-screen");
-  board = document.querySelector(".p5Canvas");
+  board = document.querySelector("canvas");
 
   diceContainer = document.querySelector(".dice-cont");
   rollDiceBtn = document.querySelector(".roll-dice-button");
   closeCardBtn = document.querySelector(".close-card");
 
-  moveBtn = document.querySelector(".move-player-button");
-  moveBtn.disabled = true; //player cannot move until roll die
+  // moveBtn = document.querySelector(".move-player-button");
+  // moveBtn.disabled = true; //player cannot move until roll die
 
 
   //start off with two blank dice
@@ -143,6 +151,8 @@ function setupUI() {
 
 
   restartBtn = document.querySelector(".restart-button");
+
+  homeBtn = document.querySelector(".back-to-home");
   
   helpBtn = document.querySelector(".help-btn");
   instructions = document.querySelector(".instructions");
@@ -200,22 +210,35 @@ function setupEventListeners() {
       clearInterval(animation);
       totalSteps = randomDiceRoll(diceContainer, 2);
       
-      moveBtn.disabled = false;
+      // moveBtn.disabled = false;
       rollDiceBtn.disabled = true;
     }, 500);
+
+    setTimeout(() => {
+      frameRate(10); //slows player down so see movement
+      movingPlayerIndex = currentPlayerIndex;
+      players[currentPlayerIndex].move(totalSteps);
+
+      currentPlayerIndex = (currentPlayerIndex + 1)  % players.length; //change player
+      
+      rollDiceBtn.disabled = true;
+    }, 1000);
+
   });
   
 
   //if click then move player
-  moveBtn.addEventListener("click", () => {
-    frameRate(10); //slows player down so see movement
-    players[currentPlayerIndex].move(totalSteps);
+  // moveBtn.addEventListener("click", () => {
+  //   frameRate(10); //slows player down so see movement
+  //   movingPlayerIndex = currentPlayerIndex;
+  //   players[currentPlayerIndex].move(totalSteps);
 
-    currentPlayerIndex = (currentPlayerIndex + 1)  % players.length; //change player
+  //   currentPlayerIndex = (currentPlayerIndex + 1)  % players.length; //change player
     
-    moveBtn.disabled = true; //allow 
-    rollDiceBtn.disabled = true;
-  });
+  //   moveBtn.disabled = true; //allow 
+  //   rollDiceBtn.disabled = true;
+
+  // });
 
 
   //clicking cards 
@@ -234,7 +257,11 @@ function setupEventListeners() {
       armCard.style.display = "none";
       closeCardBtn.style.display = "none";
       rollDiceBtn.disabled = false;
+    }, 
+    {
+      once: true
     })
+
   })
 
   blueCard.addEventListener("click", () => {
@@ -245,7 +272,11 @@ function setupEventListeners() {
       abCard.style.display = "none";
       closeCardBtn.style.display = "none";
       rollDiceBtn.disabled = false;
-    })  
+    }, 
+    {
+      once: true
+    })
+    
   })
 
   greenCard.addEventListener("click", () => {
@@ -256,7 +287,11 @@ function setupEventListeners() {
       legCard.style.display = "none";
       closeCardBtn.style.display = "none";
       rollDiceBtn.disabled = false;
+    }, 
+    {
+      once: true
     })
+    
   })
 
   yellowCard.addEventListener("click", () => {
@@ -267,7 +302,11 @@ function setupEventListeners() {
       cardioCard.style.display = "none";
       closeCardBtn.style.display = "none";
       rollDiceBtn.disabled = false;
-    })  
+    }, 
+    {
+      once: true
+    })
+    
   })
 
 
@@ -277,6 +316,30 @@ function setupEventListeners() {
       player.spot = 0;
     });
   });
+
+
+  // hack home button
+  homeBtn.addEventListener("click", () => {
+    gameScreen.style.display = "none";
+    board.style.display = "none";
+    introScreen.style.display = "flex";
+
+    players.forEach(player => {
+      player.spot = 0;
+    });
+    players = [];
+
+    diceContainer.innerHTML = "";
+    diceContainer.appendChild(createDice(0));
+    diceContainer.appendChild(createDice(0));
+
+    // moveBtn.disabled = true;
+    rollDiceBtn.disabled = false;
+
+    currentPlayerIndex = 0;
+    totalSteps = 0;
+
+  })
 
 
   //help button that shows instructions

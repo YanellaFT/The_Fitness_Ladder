@@ -69,6 +69,10 @@ body {
     margin-left: 1px;
 
     cursor: pointer;
+
+    color: #ebdec7;
+    background-color: #898989;
+    border-color: black;
 }
 #btn:hover {
     color: #898989;
@@ -142,6 +146,7 @@ body {
     background-color: #ebdec7;
 }
 
+
 .help-btn {
     width: clamp(80px, 15vw, 115px) !important;
 
@@ -165,6 +170,7 @@ body {
     color: #898989;
     background-color: #ebdec7;
 }
+
 
 .how-to-play {
     position: fixed;
@@ -196,7 +202,9 @@ body {
 
     cursor: grab;
     user-select: none;
+
 }
+
 
 .dice-cont {
     display: flex;
@@ -241,7 +249,9 @@ body {
     position: fixed;
 
     top: 20%;
-    left: calc(50% - clamp(45px, 8vw, 70px));
+    /* left: calc(50% - clamp(45px, 1px, 70px)); */
+    left: calc(50%);
+    transform: translateX(-50%);
 
     border-radius: 5px;
 
@@ -262,12 +272,13 @@ body {
     background-color: #ebdec7;
 }
 
+/* 
 .move-player-button {
     position: fixed;
     top: clamp(100px, 17vh, 125px);
     left: calc(50% + clamp(5px, 1vw, 10px));
 
-    /* margin-left: 100px; */
+    /* margin-left: 100px; 
 
     border-radius: 5px;
 
@@ -286,21 +297,26 @@ body {
 .move-player-button:hover {
     color: #898989;
     background-color: #ebdec7;
-}
+} 
+*/
 
 .card-piles {
+    /* image-rendering: crisp-edges;  */
+    /* image-rendering: pixelated; */
     position: fixed;
 
     top: 50%;
     left: clamp(5px, 8vw, 15%);
 
-    transform: translateY(-50%);
+    transform: translateY(-25%);
     
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: clamp(4px, 1vw, 10px);
+    /* gap: clamp(4px, 1vw, 10px); */
     
     z-index: 3;
+
+    scale: 140%;
 }
 
 .red-card {
@@ -392,6 +408,11 @@ width: clamp(60px, 10vw, 100px);
 .big-red-card {
     width:  clamp(120px, 20vw, 200px);
     height: clamp(180px, 30vw, 300px);
+    
+    transform: translateY(10%);
+
+    display: flex;
+    
     background-color: #d57475;
     border-radius: 10px;
     margin: 10px;
@@ -400,6 +421,9 @@ width: clamp(60px, 10vw, 100px);
 .big-blue-card {
     width:  clamp(120px, 20vw, 200px);
     height: clamp(180px, 30vw, 300px);
+    
+    transform: translateY(10%);
+    
     background-color: #00ccffff;
     border-radius: 10px;
     margin: 10px;
@@ -408,6 +432,9 @@ width: clamp(60px, 10vw, 100px);
 .big-green-card {
     width:  clamp(120px, 20vw, 200px);
     height: clamp(180px, 30vw, 300px);
+    
+    transform: translateY(10%);
+    
     background-color: #28c900ff;
     border-radius: 10px;
     margin: 10px;
@@ -416,6 +443,9 @@ width: clamp(60px, 10vw, 100px);
 .big-yellow-card {
     width:  clamp(120px, 20vw, 200px);
     height: clamp(180px, 30vw, 300px);
+    
+    transform: translateY(10%);
+    
     background-color: #ffde59;
     border-radius: 10px;
     margin: 10px;
@@ -423,7 +453,7 @@ width: clamp(60px, 10vw, 100px);
 
 .exercise-card {
     display: flex;
-    position: fixed;
+    position: absolute;
 
     top: 50%;
     left: 50%;
@@ -438,6 +468,7 @@ width: clamp(60px, 10vw, 100px);
 .close-card {
     margin: 10px;
     display: none;
+    /* display: flex; */
 
     border-radius: 5px;
 
@@ -450,6 +481,8 @@ width: clamp(60px, 10vw, 100px);
     margin-bottom: 5px;
 
     font-size: clamp(12px, 1.5vw, 15px);
+
+    /* transform: translate(100%, 100%); */
 
     cursor: pointer;
 }
@@ -462,15 +495,17 @@ width: clamp(60px, 10vw, 100px);
 .restart-button {
     border-radius: 5px;
 
+    width: clamp(80px, 15vw, 115px) !important;
+
     background-color: #898989;
     color: #ebdec7;
     border-color: #898989;
 
     padding: 3px 10px;
-    margin-left: 1px;
-    margin-bottom: 5px;
+    margin: 0;
 
     font-size: clamp(12px, 1.5vw, 15px);
+    white-space: nowrap;
 
     cursor: pointer;
 }
@@ -478,6 +513,28 @@ width: clamp(60px, 10vw, 100px);
     color: #898989;
     background-color: #ebdec7;
 }
+
+.restart {
+    position: fixed;
+    top: clamp(8px, 2vh, 15px);
+    left: calc(clamp(8px, 2vw, 15px) + clamp(80px, 14vw, 110px));
+
+    display:flex;
+    align-items: center;
+}
+
+.back-to-home {
+    position: fixed;
+    top: clamp(8px, 2vh, 15px);
+    left: clamp(8px, 2vw, 15px);
+
+    display:flex;
+    align-items: center;
+
+    gap: 8px;
+    
+}
+
 
 .game-screen {
     display: none;
@@ -488,8 +545,30 @@ width: clamp(60px, 10vw, 100px);
 }
 
 .p5Canvas {
+    display: flex;
+
     display: none;
 
-    top: 50%;
-    right: 15%;
+    position: absolute;
+
+    top: 10%;
+    right: 5%;
+
+}
+
+
+
+/*tablet*/
+@media (max-width: 768px) {
+
+}
+
+/* Mobile*/
+@media (max-width: 480px) {
+
+}
+
+/*anything smaller than mobile?!*/
+@media (max-width: 320px) {
+
 }

@@ -3,7 +3,7 @@ class Player {
         this.spot = 0;
         this.steps = 0;
         this.playerIndex = playerIndex;
-        //this.color = playerIndex === 0 ? "white" : "black"; //if playerIndex === 0 then color is white, else color is black --> New syntax learned :P
+        this.color = playerIndex === 0 ? "white" : "black"; //if playerIndex === 0 then color is white, else color is black --> New syntax learned :P
         
         if (playerIndex === 0) {
             this.color = "white";
@@ -40,6 +40,9 @@ class Player {
             if (currentTile.next != null) { //when specified certain tile in sketch for road/ladder
                 this.spot = currentTile.next;
             }
+
+            //literally only needed this to fix the not picking up right card bug siiiggghhh
+            if (this.playerIndex !== movingPlayerIndex) return;
 
             //check for what color tile
             let tileColor = currentTile.getColor();

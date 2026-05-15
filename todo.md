@@ -5,7 +5,7 @@
 * ~~movement of player --> SLOW DOWN~~
 * ~~create die roll with button click~~
 * ~~create die roll animation~~
-* ~~only move player when die stop rolling ~~
+* ~~only move player when die stop rolling~~
 * ~~correct placement of player~~
 * ~~make sure die roll actually = amount of steps moved~~
 * ~~fix border/numbering on grid/board~~
@@ -30,22 +30,26 @@
 ~~* only allow new roll once player opens/closes card~~
 * add button to start movement of die (maybe even "Enter amount to move: if input == correct steps needed then move player" for math component)
 
-* ~~add snakes ~~
+* ~~add snakes~~
 * ~~add ladders~~
 
 * ~~restart button~~
 
-* add second player  --> fix some logic like cards not working correctly
-    --> when in 2 player mode, cards only read for black player
+~~* add second player  --> fix some logic like cards not working correctly
+    --> when in 2 player mode, cards only read for black player~~
 * ~~add 4 players~~ --> fix placing & color
 * add input for how many players
 
 
 * ~~add how to play menu ---> make it moveable~~
 
-* BACK TO HOME SCREEN button on game-play screen
+* ~~BACK TO HOME SCREEN button on game-play screen~~
 
+* add info button on homescreen that explains you cant continue without pressing card etc (maybe show README?)
 
+* WIN SCREEN
+
+* show whos turn it is
 
 
  //coloring the tiles
