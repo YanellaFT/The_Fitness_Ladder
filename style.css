@@ -453,6 +453,7 @@ width: clamp(60px, 10vw, 100px);
 
 .exercise-card {
     display: flex;
+    flex-direction: column;
     position: absolute;
 
     top: 50%;
@@ -482,7 +483,7 @@ width: clamp(60px, 10vw, 100px);
 
     font-size: clamp(12px, 1.5vw, 15px);
 
-    /* transform: translate(100%, 100%); */
+    transform: translateY(50%);
 
     cursor: pointer;
 }

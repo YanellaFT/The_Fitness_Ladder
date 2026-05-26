@@ -2,7 +2,7 @@ let tiles = [];
 let players = [];
 let currentPlayerIndex = 0;
 let movingPlayerIndex = 0;
-let numPlayers = 1;
+let numPlayers = 0;
 let totalSteps = 0;
 let boardImg;
 
@@ -163,25 +163,42 @@ function setupEventListeners() {
   //set up num of playerrrrs
   playerButtons.forEach(btn => {
     btn.addEventListener("click", () => {
-      numPlayers = parseInt(btn.getAttribute("data-val"));
-      if (numPlayers === 1) {
-        btn.style.backgroundColor = "#d57475";
-        btn.style.color = "#000000ff"
-      } else if (numPlayers === 2) {
-        btn.style.backgroundColor = "#00ccffff";
-        btn.style.color = "#000000ff"
-      } else if (numPlayers === 3) {
-        btn.style.backgroundColor = "#28c900ff";
-        btn.style.color = "#000000ff"
-      } else if (numPlayers === 4) {
-        btn.style.backgroundColor = "#ffde59";
-        btn.style.color = "#000000ff"
-      }
+      const value = parseInt(btn.getAttribute("data-val"));
+
+      //uhh reset to og color plss
+      // if (numPlayers === value && btn.style.backgroundColor !== "" && btn.style.backgroundColor !== "#898989") {
+      //   btn.style.backgroundColor = "#898989";
+      //   btn.style.color = "#ebdec7";
+      //   btn.style.borderColor = "";
+      //   numPlayers = 1; 
+      //   return;
+      // }
+
+      //make sure non other btn still with color
+      playerButtons.forEach(b => {
+        b.style.backgroundColor = "#898989";
+        b.style.color = "#ebdec7";
+        b.style.borderColor = "";
+      });
+
+      const colors = { 
+        1: "#d57475", 
+        2: "#00ccffff", 
+        3: "#28c900ff", 
+        4: "#ffde59" 
+      };
+
+      btn.style.backgroundColor = colors[value];
+      btn.style.color = "#000000";
       btn.style.borderColor = "#898989";
+
+      numPlayers = value;
+      startBtn.disabled = false;
     });
   });
 
 
+  startBtn.disabled = true;
   //start game
   startBtn.addEventListener("click", () => {
     players = []
@@ -338,6 +355,15 @@ function setupEventListeners() {
 
     currentPlayerIndex = 0;
     totalSteps = 0;
+
+    startBtn.disabled = true;
+    numPlayers = 0;
+
+    playerButtons.forEach(b => {
+      b.style.backgroundColor = "#898989";
+      b.style.color = "#ebdec7";
+      b.style.borderColor = "";
+    });
 
   })
 
