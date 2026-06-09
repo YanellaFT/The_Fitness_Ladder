@@ -146,8 +146,10 @@ function setupUI() {
   cardioCard.style.display = "none";
 
   //this works so once done with all cards then put them here
-  fronts = ["one.png", "two.png"];
-  frontCard = fronts[Math.floor(Math.random() * fronts.length)]
+  fronts = ["one.png", "two.png", "three.png", "four.png", "five.png", "six.png", "seven.png", "eight.png", "nine.png", "ten.png", "eleven.png", "twelve.png", "thirteen.png", "fourteen.png", "fifteen.png", "sixteen.png", "seventeen.png", "eighteen.png", "nineteen.png", "twenty.png", "twentyone.png", "twentytwo.png", "twentythree.png"];
+  // frontCard = fronts[Math.floor(Math.random() * fronts.length)] --> needs to be inside click function bc if not then always same index then same card
+  // console.log(frontCard);
+  // fronts.splice(fronts.indexOf(frontCard), 1);
 
 
   restartBtn = document.querySelector(".restart-button");
@@ -263,6 +265,7 @@ function setupEventListeners() {
     armCard.style.display = "block";
     closeCardBtn.style.display = "block";
 
+    frontCard = fronts[Math.floor(Math.random() * fronts.length)]
     armCard.style.backgroundImage = `url(assets/front-of-card/red/${frontCard})`;
     armCard.style.backgroundSize = "cover"; 
     armCard.style.backgroundPosition = "center"; 
