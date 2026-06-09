@@ -119,6 +119,7 @@ function setupUI() {
 
   winScreen = document.querySelector(".win-screen");
 
+  turnDisplay = document.querySelector(".turn-display");
   diceContainer = document.querySelector(".dice-cont");
   rollDiceBtn = document.querySelector(".roll-dice-button");
   closeCardBtn = document.querySelector(".close-card");
@@ -217,6 +218,7 @@ function setupEventListeners() {
     for (let i = 0; i < numPlayers; i++) {
       players.push(new Player(i));
     }
+    showTurn();
   });
 
 
@@ -279,6 +281,7 @@ function setupEventListeners() {
       armCard.style.display = "none";
       closeCardBtn.style.display = "none";
       rollDiceBtn.disabled = false;
+      showTurn();
     }, 
     {
       once: true
@@ -294,6 +297,7 @@ function setupEventListeners() {
       abCard.style.display = "none";
       closeCardBtn.style.display = "none";
       rollDiceBtn.disabled = false;
+      showTurn();
     }, 
     {
       once: true
@@ -309,6 +313,7 @@ function setupEventListeners() {
       legCard.style.display = "none";
       closeCardBtn.style.display = "none";
       rollDiceBtn.disabled = false;
+      showTurn();
     }, 
     {
       once: true
@@ -324,6 +329,7 @@ function setupEventListeners() {
       cardioCard.style.display = "none";
       closeCardBtn.style.display = "none";
       rollDiceBtn.disabled = false;
+      showTurn();
     }, 
     {
       once: true
@@ -406,13 +412,22 @@ function setupEventListeners() {
   });
 }
 
+function showTurn() {
+  let playerColors = {1: "white", 2: "black", 3: "brown", 4: "grey"}
+  let playerColor = playerColors[currentPlayerIndex + 1];
+  turnDisplay.innerHTML = `Player ${currentPlayerIndex + 1}'s (${playerColor}) turn.`
+}
+
 function showWinScreen(playerIndex) {
   gameScreen.style.display = "none";
   board.style.display = "none";
   winScreen.style.display = "flex";
 
+  let playerColors = {1: "white", 2: "black", 3: "brown", 4: "grey"}
+  let playerColor = playerColors[currentPlayerIndex + 1];
+
   const text = winScreen.querySelector(".text");
-  text.innerText = `Player ${playerIndex + 1} wins!`;
+  text.innerText = `Player ${playerIndex + 1} (${playerColor}) wins!`;
 }
 
 function createDice(number) {
