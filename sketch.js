@@ -117,6 +117,8 @@ function setupUI() {
   gameScreen = document.querySelector(".game-screen");
   board = document.querySelector("canvas");
 
+  winScreen = document.querySelector(".win-screen");
+
   diceContainer = document.querySelector(".dice-cont");
   rollDiceBtn = document.querySelector(".roll-dice-button");
   closeCardBtn = document.querySelector(".close-card");
@@ -338,7 +340,7 @@ function setupEventListeners() {
   });
 
 
-  // hack home button
+  //back home button
   homeBtn.addEventListener("click", () => {
     gameScreen.style.display = "none";
     board.style.display = "none";
@@ -404,6 +406,14 @@ function setupEventListeners() {
   });
 }
 
+function showWinScreen(playerIndex) {
+  gameScreen.style.display = "none";
+  board.style.display = "none";
+  winScreen.style.display = "flex";
+
+  const text = winScreen.querySelector(".text");
+  text.innerText = `Player ${playerIndex + 1} wins!`;
+}
 
 function createDice(number) {
   const dotPositions = {

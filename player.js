@@ -41,6 +41,10 @@ class Player {
                 this.spot = currentTile.next;
             }
 
+            if (this.spot >= tiles.length - 1) {
+                showWinScreen(this.playerIndex);
+            }
+
             //literally only needed this to fix the not picking up right card bug siiiggghhh
             if (this.playerIndex !== movingPlayerIndex) return;
 
@@ -72,6 +76,7 @@ class Player {
                 greenCard.disabled = true;
                 yellowCard.disabled = true;                
             }
+
         }
 
     }

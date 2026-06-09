@@ -47,9 +47,20 @@
 
 * add info button on homescreen that explains you cant continue without pressing card etc (maybe show README?)
 
-* WIN SCREEN
+
+
+
+
+
+
+
+* WIN SCREEN --> style it
 
 * show whos turn it is
+
+* add animations between switching screens
+
+* add music option
 
 
  //coloring the tiles
