@@ -346,6 +346,8 @@ function setupEventListeners() {
   restartBtn.addEventListener("click", () => {
     players.forEach(player => {
       player.spot = 0;
+      currentPlayerIndex = 0;
+      showTurn();
     });
   });
 
