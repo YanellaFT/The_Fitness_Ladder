@@ -12,7 +12,8 @@ let restartBtn, homeBtn, helpBtn;
 let redCard, blueCard, greenCard, yellowCard;
 let armCard, abCard, legCard, cardioCard;
 
-let isDragging = false;
+let isDraggingInstuc = false;
+let isDraggingMusic = false;
 
 function preload() {
   boardImg = loadImage("assets/board.png");
@@ -161,6 +162,9 @@ function setupUI() {
   
   helpBtn = document.querySelector(".help-btn");
   instructions = document.querySelector(".instructions");
+
+  musicBtn = document.querySelector(".music-btn");
+  musicPlayer = document.querySelector(".music-player");
 
 }
 
@@ -392,12 +396,12 @@ function setupEventListeners() {
   });
 
   instructions.addEventListener("mousedown", (e) => {
-    isDragging = true;
+    isDraggingInstuc = true;
     instructions.style.cursor = "grabbing";
   });
 
   document.addEventListener("mousemove", (e) => {
-    if (isDragging) {
+    if (isDraggingInstuc) {
       let x = e.clientX;
       let y = e.clientY;
       instructions.style.left = x + "px";
@@ -407,9 +411,44 @@ function setupEventListeners() {
   });
 
   document.addEventListener("mouseup", () => {
-    isDragging = false;
+    isDraggingInstuc = false;
     instructions.style.cursor = "grab";
   });
+
+
+  //music player spotify thingy
+  musicBtn.addEventListener("click", () => {
+    if (musicPlayer.style.display === "none") {
+      musicPlayer.style.display = "block";
+      musicBtn.innerText = "Close Music";
+    } else {
+      musicPlayer.style.display = "none";
+      musicBtn.innerText = "Music";
+    }
+  });
+
+  /* NOT WORKING
+  musicPlayer.addEventListener("mousdown", (e) => {
+    isDragginMusic = true;
+    musicPlayer.style.cursor = "grabbing";
+  });
+
+  musicPlayer.addEventListener("mousemove", (e) => {
+    if (isDraggingMusic) {
+      let x = e.clientX;
+      let y = e.clientY;
+      instructions.style.left = x + "px";
+      instructions.style.top = y + "px";
+      instructions.style.margin = "0"
+    }
+  });
+
+  musicPlayer.addEventListener("mouseup", () => {
+    isDraggingMusic = false;
+    instructions.style.cursor = "grab";
+  });
+  */
+
 }
 
 function showTurn() {

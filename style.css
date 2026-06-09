@@ -569,6 +569,19 @@ width: clamp(60px, 10vw, 100px);
 
 }
 
+.spotify {
+    position: fixed;
+    bottom: clamp(8px, 2vw, 15px);
+    right: clamp(8px, 2vw, 15px);
+    z-index: 100000;
+}
+.music-player {
+    display: none;
+
+    cursor: grab;
+    user-select: none;
+}
+
 
 
 /*tablet*/
