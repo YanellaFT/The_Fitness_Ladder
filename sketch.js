@@ -24,7 +24,8 @@ function setup() {
   const canvasCont = document.createTextNode(createCanvas(450, 450));
   canvasDiv.appendChild(canvasCont);
   canvasDiv.id = "p5Canvas";
-  const canvasCurrDiv = document.getElementById("p5Canvas");
+  // canvasDiv.style.zIndex = 100;
+  // const canvasCurrDiv = document.getElementById("p5Canvas");
   // document.body.insertBefore(canvasDiv, canvasCurrDiv);
 
   // canvasCont.style.display = "none"; //hide canvas until start game
@@ -213,11 +214,21 @@ function setupEventListeners() {
   startBtn.addEventListener("click", () => {
     players = []
 
-    introScreen.style.display = "none";
-    gameScreen.style.display = "block";
-    board.style.display = "block";
-    board.style.justifyContent = "center";
-    board.style.margin = "100px auto";
+    introScreen.classList.add("slide-out-up");
+
+    setTimeout(() => {
+      introScreen.style.display = "none";
+      introScreen.classList.remove("slide-out-up");
+
+      gameScreen.style.display = "block";
+      board.style.display = "block";
+      board.style.justifyContent = "center";
+      board.style.margin = "100px auto";
+
+      board.classList.add("slide-in-up");
+      gameScreen.classList.add("slide-in-up");
+      
+    }, 500);
 
     //initialize players
     for (let i = 0; i < numPlayers; i++) {
@@ -349,20 +360,33 @@ function setupEventListeners() {
   restartBtn.addEventListener("click", () => {
     players.forEach(player => {
       player.spot = 0;
+      player.hasWon = false;
       currentPlayerIndex = 0;
       showTurn();
     });
   });
 
-  //btn for continue same game on win screen 
+  //btn for continue same game on win screen   
   continuePlayingBtn.addEventListener("click", () => {
-    winScreen.style.display = "none";
-    gameScreen.style.display = "block";
-    board.style.display = "block";
+    //only win screen moces so it looks liek curtain
+    winScreen.classList.remove("slide-in-up");
+    winScreen.classList.add("slide-out-down");
 
-    rollDiceBtn.disabled = false;
-    showTurn();
+    setTimeout(() => {
+        winScreen.style.display = "none";
+        winScreen.classList.remove("slide-out-down");
 
+        gameScreen.style.display = "block";
+        board.style.display = "block";
+
+        gameScreen.classList.remove("fade-out");
+        gameScreen.classList.add("fade-in");
+        board.classList.remove("fade-out");
+        board.classList.add("fade-in");
+
+        rollDiceBtn.disabled = false;
+        showTurn();
+    }, 500);
   });
 
 
@@ -474,9 +498,28 @@ function showTurn() {
 }
 
 function showWinScreen(playerIndex) {
-  gameScreen.style.display = "none";
-  board.style.display = "none";
-  winScreen.style.display = "flex";
+  gameScreen.classList.remove("fade-in", "fade-out", "slide-in-up", "slide-out-down", "slide-out-up");
+  gameScreen.classList.add("fade-out");
+  board.classList.remove("fade-in", "fade-out", "slide-in-up", "slide-out-down", "slide-out-up");
+  board.classList.add("fade-out");
+
+  // winScreen.classList.remove("slide-in-up", "slide-out-down");
+
+  // winScreen.classList.add("slide-in-up");
+
+  setTimeout(() => {
+    gameScreen.classList.remove("fade-out");
+    board.classList.remove("fade-out")
+
+    winScreen.classList.remove("slide-in-up", "slide-out-down");
+
+    winScreen.classList.add("slide-in-up");
+
+    gameScreen.style.display = "none";
+    board.style.display = "none";
+    winScreen.style.display = "flex";
+
+  }, 500);
 
   let playerColors = {1: "white", 2: "black", 3: "brown", 4: "grey"}
   let playerColor = playerColors[playerIndex + 1];
