@@ -4,7 +4,8 @@ class Player {
         this.steps = 0;
         this.playerIndex = playerIndex;
         this.color = playerIndex === 0 ? "white" : "black"; //if playerIndex === 0 then color is white, else color is black --> New syntax learned :P
-        
+        this.hasWon = false;
+
         if (playerIndex === 0) {
             this.color = "white";
         } else if (playerIndex === 1) {
@@ -22,6 +23,8 @@ class Player {
     }
 
     update() {
+        if (this.hasWon) return;
+
         if (this.steps > 0) { //when player is moving
             this.spot ++; //move one in direction 
             this.steps --; //steps = steps - 1
@@ -42,6 +45,7 @@ class Player {
             }
 
             if (this.spot >= tiles.length - 1) {
+                this.hasWon = true;
                 showWinScreen(this.playerIndex);
             }
 
@@ -82,6 +86,8 @@ class Player {
     }
 
     show(tiles) {
+        if (this.hasWon) return;
+
         let current = tiles[this.spot];
         fill(this.color);
         let center = current.getCenter();

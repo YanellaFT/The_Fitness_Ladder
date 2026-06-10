@@ -6,9 +6,9 @@ let numPlayers = 0;
 let totalSteps = 0;
 let boardImg;
 
-let playerButtons, startBtn, introScreen, gameScreen, board;
+let playerButtons, startBtn, introScreen, gameScreen, board, winScreen;
 let diceContainer, rollDiceBtn, closeCardBtn; //moveBtn;
-let restartBtn, homeBtn, helpBtn;
+let restartBtn, homeBtn, helpBtn, continuePlayingBtn;
 let redCard, blueCard, greenCard, yellowCard;
 let armCard, abCard, legCard, cardioCard;
 
@@ -119,6 +119,7 @@ function setupUI() {
   board = document.querySelector("canvas");
 
   winScreen = document.querySelector(".win-screen");
+  continuePlayingBtn = document.querySelector(".cont-play-btn")
 
   turnDisplay = document.querySelector(".turn-display");
   diceContainer = document.querySelector(".dice-cont");
@@ -246,8 +247,10 @@ function setupEventListeners() {
       movingPlayerIndex = currentPlayerIndex;
       players[currentPlayerIndex].move(totalSteps);
 
+      // do {
       currentPlayerIndex = (currentPlayerIndex + 1)  % players.length; //change player
-      
+      // } while (players[currentPlayerIndex].hasWon && players.some(p => !p.hasWon));
+
       rollDiceBtn.disabled = true;
     }, 1000);
 
@@ -349,6 +352,17 @@ function setupEventListeners() {
       currentPlayerIndex = 0;
       showTurn();
     });
+  });
+
+  //btn for continue same game on win screen 
+  continuePlayingBtn.addEventListener("click", () => {
+    winScreen.style.display = "none";
+    gameScreen.style.display = "block";
+    board.style.display = "block";
+
+    rollDiceBtn.disabled = false;
+    showTurn();
+
   });
 
 
@@ -465,10 +479,10 @@ function showWinScreen(playerIndex) {
   winScreen.style.display = "flex";
 
   let playerColors = {1: "white", 2: "black", 3: "brown", 4: "grey"}
-  let playerColor = playerColors[currentPlayerIndex + 1];
+  let playerColor = playerColors[playerIndex + 1];
 
   const text = winScreen.querySelector(".text");
-  text.innerText = `Player ${playerIndex + 1} (${playerColor}) wins!`;
+  text.innerText = `Player ${playerIndex + 1} (${playerColor}) has reached the end!`;
 }
 
 function createDice(number) {
