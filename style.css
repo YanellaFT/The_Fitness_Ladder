@@ -1,7 +1,7 @@
 body {
     color: #ebdec7;
     /* background-color: #755609; */
-    background-image: url('assets/woodbg.png');
+    background-image: url('./assets/woodbg.png');
     background-size:cover;
     background-position: center;
 
@@ -325,7 +325,7 @@ body {
 .red-card {
     width: clamp(60px, 10vw, 100px);
     height: clamp(90px, 15vw, 150px);
-    background-image: url('assets/back-of-card/red-back-card.png');
+    background-image: url('./assets/back-of-card/red-back-card.png');
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
@@ -346,7 +346,7 @@ body {
 .blue-card {
     width: clamp(60px, 10vw, 100px);
     height: clamp(90px, 15vw, 150px);
-    background-image: url('assets/back-of-card/blue-back-card.png');
+    background-image: url('./assets/back-of-card/blue-back-card.png');
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
@@ -367,7 +367,7 @@ body {
 .green-card {
 width: clamp(60px, 10vw, 100px);
     height: clamp(90px, 15vw, 150px);
-    background-image: url('assets/back-of-card/green-back-card.png');
+    background-image: url('./assets/back-of-card/green-back-card.png');
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
@@ -390,7 +390,7 @@ width: clamp(60px, 10vw, 100px);
     border-style: solid;
     width: clamp(60px, 10vw, 100px);
     height: clamp(90px, 15vw, 150px);
-    background-image: url('assets/back-of-card/yellow-back-card.png');
+    background-image: url('./assets/back-of-card/yellow-back-card.png');
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
@@ -583,6 +583,8 @@ width: clamp(60px, 10vw, 100px);
 
     cursor: grab;
     user-select: none;
+
+    padding-top: 8px;
 }
 
 .slide-out-up {

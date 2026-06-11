@@ -16,7 +16,7 @@ let isDraggingInstuc = false;
 let isDraggingMusic = false;
 
 function preload() {
-  boardImg = loadImage("assets/board.png");
+  boardImg = loadImage("./assets/board.png");
 }
 
 function setup() {
@@ -288,7 +288,7 @@ function setupEventListeners() {
     closeCardBtn.style.display = "block";
 
     frontCard = fronts[Math.floor(Math.random() * fronts.length)]
-    armCard.style.backgroundImage = `url(assets/front-of-card/red/${frontCard})`;
+    armCard.style.backgroundImage = `url(./assets/front-of-card/red/${frontCard})`;
     armCard.style.backgroundSize = "cover"; 
     armCard.style.backgroundPosition = "center"; 
     armCard.style.backgroundRepeat = "no-repeat";

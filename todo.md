@@ -57,9 +57,9 @@
 
 * WIN SCREEN --> style it (add confetti!!!)
 
-* add animations between switching screens
+* ~~add animations between switching screens~~
 
-* add music option
+* ~~add music option~~
 
 
  //coloring the tiles
