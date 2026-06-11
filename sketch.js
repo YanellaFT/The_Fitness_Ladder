@@ -262,9 +262,9 @@ function setupEventListeners() {
       movingPlayerIndex = currentPlayerIndex;
       players[currentPlayerIndex].move(totalSteps);
 
-      // do {
+      do {
       currentPlayerIndex = (currentPlayerIndex + 1)  % players.length; //change player
-      // } while (players[currentPlayerIndex].hasWon && players.some(p => !p.hasWon));
+      } while (players[currentPlayerIndex].hasWon && players.some(p => !p.hasWon));
 
       rollDiceBtn.disabled = true;
     }, 1000);

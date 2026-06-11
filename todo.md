@@ -59,6 +59,8 @@
 
 * homebtn on win Screen does not work!!!
 
+* add counter of what ex winner did?
+
 * ~~add animations between switching screens~~
 
 * ~~add music option~~
