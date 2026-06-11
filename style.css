@@ -620,6 +620,17 @@ width: clamp(60px, 10vw, 100px);
     }
 }
 
+.slide-in-down {
+    animation: slideInDown 0.5s ease;
+}
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100vh);
+    } to {
+        transform: translateY(0);
+    }
+}
+
 .fade-in {
     animation: fadeIn 0.5s ease;
 }

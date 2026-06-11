@@ -214,11 +214,15 @@ function setupEventListeners() {
   startBtn.addEventListener("click", () => {
     players = []
 
+    introScreen.classList.remove("fade-in", "fade-out", "slide-in-up", "slide-out-down", "slide-out-up", "slide-in-down");
+    gameScreen.classList.remove("fade-in", "fade-out", "slide-in-up", "slide-out-down", "slide-out-up", "slide-in-down");
+    board.classList.remove("fade-in", "fade-out", "slide-in-up", "slide-out-down", "slide-out-up", "slide-in-down");
+
     introScreen.classList.add("slide-out-up");
 
     setTimeout(() => {
       introScreen.style.display = "none";
-      introScreen.classList.remove("slide-out-up");
+      introScreen.classList.remove("fade-in", "fade-out", "slide-in-up", "slide-out-down", "slide-out-up", "slide-in-down");
 
       gameScreen.style.display = "block";
       board.style.display = "block";
@@ -364,24 +368,30 @@ function setupEventListeners() {
       currentPlayerIndex = 0;
       showTurn();
     });
+
+    diceContainer.innerHTML = "";
+    diceContainer.appendChild(createDice(0));
+    diceContainer.appendChild(createDice(0));
+
+    rollDiceBtn.disabled = false;
   });
 
   //btn for continue same game on win screen   
   continuePlayingBtn.addEventListener("click", () => {
     //only win screen moces so it looks liek curtain
-    winScreen.classList.remove("slide-in-up");
+    winScreen.classList.remove("fade-in", "fade-out", "slide-in-up", "slide-out-down", "slide-out-up", "slide-in-down");
     winScreen.classList.add("slide-out-down");
 
     setTimeout(() => {
         winScreen.style.display = "none";
-        winScreen.classList.remove("slide-out-down");
+        winScreen.classList.remove("fade-in", "fade-out", "slide-in-up", "slide-out-down", "slide-out-up", "slide-in-down");
 
         gameScreen.style.display = "block";
         board.style.display = "block";
 
-        gameScreen.classList.remove("fade-out");
+        gameScreen.classList.remove("fade-in", "fade-out", "slide-in-up", "slide-out-down", "slide-out-up", "slide-in-down");
         gameScreen.classList.add("fade-in");
-        board.classList.remove("fade-out");
+        board.classList.remove("fade-in", "fade-out", "slide-in-up", "slide-out-down", "slide-out-up", "slide-in-down");
         board.classList.add("fade-in");
 
         rollDiceBtn.disabled = false;
@@ -392,9 +402,20 @@ function setupEventListeners() {
 
   //back home button
   homeBtn.addEventListener("click", () => {
-    gameScreen.style.display = "none";
-    board.style.display = "none";
-    introScreen.style.display = "flex";
+    gameScreen.classList.remove("fade-in", "fade-out", "slide-in-up", "slide-out-down", "slide-out-up", "slide-in-down");
+    board.classList.remove("fade-in", "fade-out", "slide-in-up", "slide-out-down", "slide-out-up", "slide-in-down");
+    gameScreen.classList.add("slide-out-down")
+    board.classList.add("slide-out-down");
+
+    setTimeout(() => {
+      gameScreen.style.display = "none";
+      board.style.display = "none";
+      // gameScreen.classList.add("slide-out-down")
+      // board.classList.add("slide-out-down");
+
+      introScreen.style.display = "flex";
+      introScreen.classList.add("slide-in-down");
+    }, 500);
 
     players.forEach(player => {
       player.spot = 0;
@@ -498,20 +519,19 @@ function showTurn() {
 }
 
 function showWinScreen(playerIndex) {
-  gameScreen.classList.remove("fade-in", "fade-out", "slide-in-up", "slide-out-down", "slide-out-up");
+  gameScreen.classList.remove("fade-in", "fade-out", "slide-in-up", "slide-out-down", "slide-out-up", "slide-in-down");
+  board.classList.remove("fade-in", "fade-out", "slide-in-up", "slide-out-down", "slide-out-up", "slide-in-down");
   gameScreen.classList.add("fade-out");
-  board.classList.remove("fade-in", "fade-out", "slide-in-up", "slide-out-down", "slide-out-up");
   board.classList.add("fade-out");
 
-  // winScreen.classList.remove("slide-in-up", "slide-out-down");
+  // winScreen.classList.remove("fade-in", "fade-out", "slide-in-up", "slide-out-down", "slide-out-up", "slide-in-down");
 
   // winScreen.classList.add("slide-in-up");
 
   setTimeout(() => {
-    gameScreen.classList.remove("fade-out");
-    board.classList.remove("fade-out")
-
-    winScreen.classList.remove("slide-in-up", "slide-out-down");
+    gameScreen.classList.remove("fade-in", "fade-out", "slide-in-up", "slide-out-down", "slide-out-up", "slide-in-down");
+    board.classList.remove("fade-in", "fade-out", "slide-in-up", "slide-out-down", "slide-out-up", "slide-in-down");
+    winScreen.classList.remove("fade-in", "fade-out", "slide-in-up", "slide-out-down", "slide-out-up", "slide-in-down");
 
     winScreen.classList.add("slide-in-up");
 

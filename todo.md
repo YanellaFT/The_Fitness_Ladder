@@ -57,6 +57,8 @@
 
 * WIN SCREEN --> style it (add confetti!!!)
 
+* homebtn on win Screen does not work!!!
+
 * ~~add animations between switching screens~~
 
 * ~~add music option~~
