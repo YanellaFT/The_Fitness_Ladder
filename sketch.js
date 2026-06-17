@@ -315,6 +315,12 @@ function setupEventListeners() {
     abCard.style.display = "block";
     closeCardBtn.style.display = "block";
 
+    frontCard = fronts[Math.floor(Math.random() * fronts.length)]
+    abCard.style.backgroundImage = `url(./assets/front-of-card/blue/${frontCard})`;
+    abCard.style.backgroundSize = "cover"; 
+    abCard.style.backgroundPosition = "center"; 
+    abCard.style.backgroundRepeat = "no-repeat";
+
     closeCardBtn.addEventListener("click", () => {
       abCard.style.display = "none";
       closeCardBtn.style.display = "none";
@@ -331,6 +337,12 @@ function setupEventListeners() {
     legCard.style.display = "block";
     closeCardBtn.style.display = "block";
 
+    frontCard = fronts[Math.floor(Math.random() * fronts.length)]
+    legCard.style.backgroundImage = `url(./assets/front-of-card/green/${frontCard})`;
+    legCard.style.backgroundSize = "cover"; 
+    legCard.style.backgroundPosition = "center"; 
+    legCard.style.backgroundRepeat = "no-repeat";
+
     closeCardBtn.addEventListener("click", () => {
       legCard.style.display = "none";
       closeCardBtn.style.display = "none";
@@ -346,6 +358,12 @@ function setupEventListeners() {
   yellowCard.addEventListener("click", () => {
     cardioCard.style.display = "block";
     closeCardBtn.style.display = "block";
+
+    // frontCard = fronts[Math.floor(Math.random() * fronts.length)]
+    // cardioCard.style.backgroundImage = `url(./assets/front-of-card/yellow/${frontCard})`;
+    // cardioCard.style.backgroundSize = "cover"; 
+    // cardioCard.style.backgroundPosition = "center"; 
+    // cardioCard.style.backgroundRepeat = "no-repeat";
 
     closeCardBtn.addEventListener("click", () => {
       cardioCard.style.display = "none";
