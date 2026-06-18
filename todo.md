@@ -62,9 +62,9 @@
 * add counter of what ex winner did?
 
 *~~ font~~
-* spacing on screens
+* ~~spacing on screens~~
 
-* tab pic
+* ~~tab pic~~
 
 * ~~add animations between switching screens~~
 
