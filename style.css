@@ -1,3 +1,11 @@
+@font-face {
+    font-family: "Adabelle";
+    src: url("./assets/fonts/Adabelle.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 body {
     color: #ebdec7;
     /* background-color: #755609; */
@@ -6,7 +14,7 @@ body {
     background-position: center;
 
     text-align: CENTER;
-    font-family: cursive;
+    font-family: "Adabelle", cursive;
 
     display: flex;
     justify-content: center;
@@ -35,6 +43,8 @@ body {
     align-items: center;
     justify-content: center;
     flex-basis: clamp(60px, 10vh, 100px);
+
+    letter-spacing: 0.02em;
 }
 
 .title {
@@ -44,7 +54,7 @@ body {
     height: 80px; */
 
     padding: clamp(10px, 2vw, 20px);
-    font-size: clamp(18px, 4vw, 32px);
+    font-size: clamp(36px, 8vw, 64px);
 }
 .title:hover {
     scale: 110%;
@@ -57,11 +67,19 @@ body {
     transition: ease 0.3s;
 }
 
+.description {
+    font-size: clamp(24px, 3vw, 30px);
+}
+
+.numOfPlayTxt {
+    font-size: clamp(30px, 5vw, 40px);
+}
+
 
 #btn {
     width: clamp(80px, 15vw, 100px);
-    font-family: cursive;
-    font-size: clamp(12px, 1.5vw, 15px);
+    font-family: "Adabelle", cursive;;
+    font-size: clamp(24px, 3vw, 30px);
 
     border-radius: 20px;
     border-width: 1.5px;
@@ -84,7 +102,7 @@ body {
 }
 
 .player-choice {
-    margin: clamp(20px, 5vw, 50px);
+    margin: clamp(10px, 1vw, 30px);
 }
 
 .player-btn {
@@ -100,11 +118,11 @@ body {
     margin-left: 1px;
     margin-bottom: 5px;
     
-    font-family: cursive;
-    font-size: clamp(12px, 1.5vw, 15px);
+    font-family: "Adabelle", cursive;;
+    font-size: clamp(24px, 3vw, 30px);
     /* font-weight: bold; */
     
-    width: clamp(70px, 15vw, 100px);
+    width: clamp(80px, 30vw, 120px);
 
     cursor: pointer;
 }
@@ -140,7 +158,7 @@ body {
     margin-left: 1px;
     margin-bottom: 5px;
 
-    font-size: clamp(12px, 1.5vw, 15px);
+    font-size: clamp(24px, 3vw, 30px);
 
     cursor: pointer;
 }
@@ -164,7 +182,7 @@ body {
     margin-left: 1px;
     margin-bottom: 5px;
 
-    font-size: clamp(12px, 1.5vw, 15px);
+    font-size: clamp(24px, 3vw, 30px);
 
     cursor: pointer;
     width: 100px;
@@ -201,7 +219,7 @@ body {
 
     text-align: left;
 
-    font-size: clamp(11px, 1.4vw, 14px);
+    font-size: clamp(22px, 2.8vw, 28px);
 
     cursor: grab;
     user-select: none;
@@ -266,7 +284,7 @@ body {
     margin-left: 1px;
     margin-bottom: 5px;
 
-    font-size: clamp(12px, 1.5vw, 15px);
+    font-size: clamp(24px, 3vw, 30px);
 
     cursor:pointer;
 }
@@ -484,7 +502,7 @@ width: clamp(60px, 10vw, 100px);
     margin-left: 1px;
     margin-bottom: 5px;
 
-    font-size: clamp(12px, 1.5vw, 15px);
+    font-size: clamp(24px, 3vw, 30px);
 
     transform: translateY(50%);
 
@@ -508,7 +526,7 @@ width: clamp(60px, 10vw, 100px);
     padding: 3px 10px;
     margin: 0;
 
-    font-size: clamp(12px, 1.5vw, 15px);
+    font-size: clamp(24px, 3vw, 30px);
     white-space: nowrap;
 
     cursor: pointer;
