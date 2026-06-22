@@ -359,11 +359,11 @@ function setupEventListeners() {
     cardioCard.style.display = "block";
     closeCardBtn.style.display = "block";
 
-    // frontCard = fronts[Math.floor(Math.random() * fronts.length)]
-    // cardioCard.style.backgroundImage = `url(./assets/front-of-card/yellow/${frontCard})`;
-    // cardioCard.style.backgroundSize = "cover"; 
-    // cardioCard.style.backgroundPosition = "center"; 
-    // cardioCard.style.backgroundRepeat = "no-repeat";
+    frontCard = fronts[Math.floor(Math.random() * fronts.length)]
+    cardioCard.style.backgroundImage = `url(./assets/front-of-card/yellow/${frontCard})`;
+    cardioCard.style.backgroundSize = "cover"; 
+    cardioCard.style.backgroundPosition = "center"; 
+    cardioCard.style.backgroundRepeat = "no-repeat";
 
     closeCardBtn.addEventListener("click", () => {
       cardioCard.style.display = "none";
