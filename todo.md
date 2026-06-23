@@ -57,7 +57,7 @@
 
 * WIN SCREEN --> style it (add confetti!!!)
 
-* homebtn on win Screen does not work!!!
+~~* homebtn on win Screen does not work!!!~~
 
 * add counter of what ex winner did?
 

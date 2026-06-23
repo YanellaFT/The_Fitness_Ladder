@@ -422,12 +422,16 @@ function setupEventListeners() {
   homeBtn.addEventListener("click", () => {
     gameScreen.classList.remove("fade-in", "fade-out", "slide-in-up", "slide-out-down", "slide-out-up", "slide-in-down");
     board.classList.remove("fade-in", "fade-out", "slide-in-up", "slide-out-down", "slide-out-up", "slide-in-down");
+    winScreen.classList.remove("fade-in", "fade-out", "slide-in-up", "slide-out-down", "slide-out-up", "slide-in-down");
+    
     gameScreen.classList.add("slide-out-down")
     board.classList.add("slide-out-down");
+    winScreen.classList.add("slide-out-down");
 
     setTimeout(() => {
       gameScreen.style.display = "none";
       board.style.display = "none";
+      winScreen.style.display = "none";
       // gameScreen.classList.add("slide-out-down")
       // board.classList.add("slide-out-down");
 

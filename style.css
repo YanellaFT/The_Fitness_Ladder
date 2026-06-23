@@ -94,6 +94,8 @@ body {
     color: #ebdec7;
     background-color: #898989;
     border-color: black;
+
+    text-align: center;
 }
 #btn:hover {
     color: #898989;
@@ -270,6 +272,8 @@ body {
 
 .roll-dice-button {
     position: fixed;
+
+    z-index: 1000;
 
     top: 22%;
     /* left: calc(50% - clamp(45px, 1px, 70px)); */
@@ -521,7 +525,7 @@ width: clamp(60px, 10vw, 100px);
 .restart-button {
     border-radius: 5px;
 
-    width: clamp(80px, 20vw, 180px) !important;
+    width: clamp(130px, 20vw, 180px) !important;
 
     background-color: #898989;
     color: #ebdec7;
@@ -559,6 +563,7 @@ width: clamp(60px, 10vw, 100px);
 
     gap: 8px;
     
+    z-index: 10000;
 }
 
 .turn-display {
@@ -584,6 +589,8 @@ width: clamp(60px, 10vw, 100px);
     height: 100vh;
 
     position: fixed;
+
+    z-index: 5;
 }
 
 .congrats {
