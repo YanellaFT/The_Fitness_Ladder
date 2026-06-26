@@ -20,7 +20,9 @@ I am definetly very proud of this project. It has been the project I have worked
 
 This project definetly challenged me and I learned so many new cool things I can apply to other projects later. 
 
-I took inspiration from Aces, which is where I got the idea for this project from. I was in a workout slump and was wondering if I could combine three things I love (math, coding, playing card/board games, and working out) to help me and other athletes out.
+I took inspiration from Aces, which is where I got the idea for this project from. I was in a workout slump and was wondering if I could combine three things I love (math, coding, playing card/board games, and working out) to help me and other athletes out. 
+
+It is made with JS, HTML, and CSS. If you'd like to contribute to it, just clone the repo and you should be good to go. It can be deplyed on web. 
 
 All cards are very home-friendly, meaning you don't need crazy equipment to get started. All you need is to press start, maybe a couple dumbells, and thats it. 
 
@@ -28,8 +30,14 @@ All cards are very home-friendly, meaning you don't need crazy equipment to get 
 
 There is definetly more to be done with this project to make it even better, so I will definetly keep working on it (I just dont want to miss the deadline to submit...)
 
+---
+
+![screenshot of home screen](<Screenshot 2026-06-25 201529.png>)
+![screenshot of game screen](<Screenshot 2026-06-25 201550.png>)
+
 
 ### Tutorials Used
+only used tutorial parts for snakes and ladders game style (not copied 1:1) and learning how to do spotify pop up
 * [Coding Challenge #91: Snakes & Ladders - Part 1](https://www.youtube.com/watch?v=JrRO3OnWs5s)
 * [Coding Challenge #91: Snakes & Ladders - Part 2](https://www.youtube.com/watch?v=wN5Is0DjW8w)
 * [Coding Challenge #91: Snakes & Ladders - Part 2](https://www.youtube.com/watch?v=1Ec_-wzJCPY)
